@@ -26,7 +26,9 @@
 <!-- color CSS -->
 <link href="<c:url value="/css/colors/megna-dark.css" />" id="theme"
 	rel="stylesheet">
-<link href="<c:url value="/plugins/bower_components/bootstrap-select/bootstrap-select.min.css" />" rel="stylesheet" />
+<link
+	href="<c:url value="/plugins/bower_components/bootstrap-select/bootstrap-select.min.css" />"
+	rel="stylesheet" />
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -247,6 +249,7 @@
 								</div>
 							</div>
 						</div>
+					</div>
 				</form>
 				<!-- /.Row -->
 				<!-- .Row -->
@@ -360,7 +363,9 @@
 		src="<c:url value="/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js" />"></script>
 	<!--slimscroll JavaScript -->
 	<script src="<c:url value="/js/jquery.slimscroll.js" />"></script>
-	<script src="<c:url value="/plugins/bower_components/bootstrap-select/bootstrap-select.min.js" />" type="text/javascript"></script>
+	<script
+		src="<c:url value="/plugins/bower_components/bootstrap-select/bootstrap-select.min.js" />"
+		type="text/javascript"></script>
 	<script type="text/javascript">
 		$('#slimtest1').slimScroll({
 			height : '500px'
