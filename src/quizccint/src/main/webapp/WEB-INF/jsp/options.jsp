@@ -19,6 +19,9 @@
 <link
 	href="<c:url value="/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" />"
 	rel="stylesheet">
+<link
+	href="<c:url value="/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />"
+	rel="stylesheet" />
 <!-- animation CSS -->
 <link href="<c:url value="/css/animate.css" />" rel="stylesheet">
 <!-- Custom CSS -->
@@ -101,7 +104,6 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="white-box">
-								<!-- <h3 class="box-title">Both Scroll</h3> -->
 								<div class="row">
 									<div class="form-group">
 										<div class="col-sm-6">
@@ -113,7 +115,7 @@
 												<option>Python</option>
 											</select>
 											<button type="button"
-												class="btn btn-inverse waves-effect waves-light">Next</button>
+												class="btn btn-inverse waves-effect waves-light">Search</button>
 										</div>
 									</div>
 								</div>
@@ -128,43 +130,55 @@
 										<div class="col-sm-12">
 											<div class="checkbox checkbox-custom">
 												<input id="checkbox0" type="checkbox" checked> <label
-													for="checkbox0"> Introduction to Computers, the Internet and Java</label>
+													for="checkbox0"> Introduction to Computers, the
+													Internet and Java</label> <a href="#"><span
+													class="badge badge-success">5<input type="hidden"
+														value=""></span></a>
 											</div>
 											<div class="checkbox checkbox-custom">
 												<input id="checkbox1" type="checkbox" checked> <label
-													for="checkbox1"> Input/Output and Operators</label>
+													for="checkbox1"> Input/Output and Operators</label> <span
+													class="badge">15</span>
 											</div>
 											<div class="checkbox checkbox-custom">
 												<input id="checkbox2" type="checkbox" checked> <label
-													for="checkbox2"> Introduction to Classes, Objects, Methods and Strings</label>
+													for="checkbox2"> Introduction to Classes, Objects,
+													Methods and Strings</label> <span class="badge">8</span>
 											</div>
 											<div class="checkbox checkbox-custom">
 												<input id="checkbox3" type="checkbox" checked> <label
-													for="checkbox3"> Control Statements: Part I</label>
+													for="checkbox3"> Control Statements: Part I</label> <span
+													class="badge">15</span>
 											</div>
 											<div class="checkbox checkbox-custom">
 												<input id="checkbox4" type="checkbox" checked> <label
-													for="checkbox4"> Control Statements: Part II</label>
+													for="checkbox4"> Control Statements: Part II </label> <span
+													class="badge">45</span>
 											</div>
 											<div class="checkbox checkbox-custom">
 												<input id="checkbox5" type="checkbox" checked> <label
-													for="checkbox5"> Classes and Objects</label>
+													for="checkbox5"> Classes and Objects</label> <span
+													class="badge">45</span>
 											</div>
 											<div class="checkbox checkbox-custom">
 												<input id="checkbox6" type="checkbox" checked> <label
-													for="checkbox6"> Arrays and ArrayLists</label>
+													for="checkbox6"> Arrays and ArrayLists</label> <span
+													class="badge">45</span>
 											</div>
 											<div class="checkbox checkbox-custom">
 												<input id="checkbox6" type="checkbox" checked> <label
-													for="checkbox6"> Object-Oriented Programming: Inheritance</label>
+													for="checkbox6"> Object-Oriented Programming:
+													Inheritance</label> <span class="badge">45</span>
 											</div>
 											<div class="checkbox checkbox-custom">
 												<input id="checkbox6" type="checkbox" checked> <label
-													for="checkbox6"> Object-Oriented Programming: Polymorphism and Interfaces</label>
+													for="checkbox6"> Object-Oriented Programming:
+													Polymorphism and Interfaces</label> <span class="badge">45</span>
 											</div>
 											<div class="checkbox checkbox-custom">
 												<input id="checkbox6" type="checkbox" checked> <label
-													for="checkbox6"> Exception Handling</label>
+													for="checkbox6"> Exception Handling</label> <span
+													class="badge">45</span>
 											</div>
 										</div>
 									</div>
@@ -174,8 +188,7 @@
 												<button type="button"
 													class="btn waves-effect waves-light m-r-10">Select
 													All</button>
-												<button type="button"
-													class="btn waves-effect waves-light">Deselect
+												<button type="button" class="btn waves-effect waves-light">Deselect
 													All</button>
 											</div>
 										</div>
@@ -184,17 +197,18 @@
 								<hr>
 								<div class="row">
 									<div class="form-group">
-										<div class="col-sm-12">
+										<div class="col-sm-3">
+											<input type="email" class="form-control" id="inputEmail3"
+												placeholder="" value="320 Questions" readonly>
+										</div>
+										<div class="col-sm-9 text-right">
 											<button type="button"
-												class="btn btn-inverse waves-effect waves-light">Cancel</button>
-												<button type="button"
 												class="btn btn-success waves-effect waves-light m-r-10">Continue</button>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 				</form>
 				<!-- /.Row -->
 				<!-- .Row -->
@@ -309,6 +323,9 @@
 	<!--slimscroll JavaScript -->
 	<script src="<c:url value="/js/jquery.slimscroll.js" />"></script>
 	<script
+		src="<c:url value="/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" />"
+		type="text/javascript"></script>
+	<script
 		src="<c:url value="/plugins/bower_components/bootstrap-select/bootstrap-select.min.js" />"
 		type="text/javascript"></script>
 	<script type="text/javascript">
@@ -330,6 +347,7 @@
 			height : '250px',
 			alwaysVisible : true
 		});
+		$("input[name='tch3']").TouchSpin();
 	</script>
 	<!--Wave Effects -->
 	<script src="<c:url value="/js/waves.js" />"></script>

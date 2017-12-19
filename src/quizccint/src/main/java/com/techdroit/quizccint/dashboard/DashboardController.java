@@ -16,6 +16,12 @@ public class DashboardController {
 	@RequestMapping("/")
 	public String welcome(Map<String, Object> model) {
 		model.put("message", this.message);
+		return "index";
+	}
+	
+	@RequestMapping("/options")
+	public String options(Map<String, Object> model) {
+		model.put("message", this.message);
 		return "options";
 	}
 }
