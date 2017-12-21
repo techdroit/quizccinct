@@ -36,4 +36,10 @@ public class DashboardController {
 		model.put("message", this.message);
 		return "question";
 	}
+	
+	@RequestMapping("/sections")
+	public String newQuizSections(Map<String, Object> model) {
+		model.put("message", this.message);
+		return "sections";
+	}
 }

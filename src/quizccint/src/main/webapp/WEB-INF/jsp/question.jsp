@@ -20,6 +20,12 @@
 	href="<c:url value="/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" />"
 	rel="stylesheet">
 <link
+	href="<c:url value="/plugins/bower_components/custom-select/custom-select.css" />"
+	rel="stylesheet" type="text/css" />
+<link
+	href="<c:url value="/plugins/bower_components/bootstrap-select/bootstrap-select.min.css" />"
+	rel="stylesheet" />
+<link
 	href="<c:url value="/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />"
 	rel="stylesheet" />
 <!-- animation CSS -->
@@ -111,10 +117,92 @@
 												id="inputEmail3" placeholder="Quiz Name" readonly>
 										</div>
 
+
 										<div class="form-group">
-											<label class="control-label">Question Type</label> <select id="questionTypeSelect"
+											<label class="control-label">Quiz Section</label> <select
+												class="form-control select2"
+												data-placeholder="Choose a Category" tabindex="1">
+												<option>Select</option>
+												<optgroup label="Alaskan/Hawaiian Time Zone">
+													<option value="AK">Alaska</option>
+													<option value="HI">Hawaii</option>
+												</optgroup>
+												<optgroup label="Pacific Time Zone">
+													<option value="CA">California</option>
+													<option value="NV">Nevada</option>
+													<option value="OR">Oregon</option>
+													<option value="WA">Washington</option>
+												</optgroup>
+												<optgroup label="Mountain Time Zone">
+													<option value="AZ">Arizona</option>
+													<option value="CO">Colorado</option>
+													<option value="ID">Idaho</option>
+													<option value="MT">Montana</option>
+													<option value="NE">Nebraska</option>
+													<option value="NM">New Mexico</option>
+													<option value="ND">North Dakota</option>
+													<option value="UT">Utah</option>
+													<option value="WY">Wyoming</option>
+												</optgroup>
+												<optgroup label="Central Time Zone">
+													<option value="AL">Alabama</option>
+													<option value="AR">Arkansas</option>
+													<option value="IL">Illinois</option>
+													<option value="IA">Iowa</option>
+													<option value="KS">Kansas</option>
+													<option value="KY">Kentucky</option>
+													<option value="LA">Louisiana</option>
+													<option value="MN">Minnesota</option>
+													<option value="MS">Mississippi</option>
+													<option value="MO">Missouri</option>
+													<option value="OK">Oklahoma</option>
+													<option value="SD">South Dakota</option>
+													<option value="TX">Texas</option>
+													<option value="TN">Tennessee</option>
+													<option value="WI">Wisconsin</option>
+												</optgroup>
+												<optgroup label="Eastern Time Zone">
+													<option value="CT">Connecticut</option>
+													<option value="DE">Delaware</option>
+													<option value="FL">Florida</option>
+													<option value="GA">Georgia</option>
+													<option value="IN">Indiana</option>
+													<option value="ME">Maine</option>
+													<option value="MD">Maryland</option>
+													<option value="MA">Massachusetts</option>
+													<option value="MI">Michigan</option>
+													<option value="NH">New Hampshire</option>
+													<option value="NJ">New Jersey</option>
+													<option value="NY">New York</option>
+													<option value="NC">North Carolina</option>
+													<option value="OH">Ohio</option>
+													<option value="PA">Pennsylvania</option>
+													<option value="RI">Rhode Island</option>
+													<option value="SC">South Carolina</option>
+													<option value="VT">Vermont</option>
+													<option value="VA">Virginia</option>
+													<option value="WV">West Virginia</option>
+												</optgroup>
+											</select>
+										</div>
+
+
+										<!--
+										<div class="form-group">
+											<label class="control-label">Quiz Section</label> <select
 												class="form-control" data-placeholder="Choose a Category"
 												tabindex="1">
+												<option value="Category 3">Section 1</option>
+												<option value="Category 2">Section 1</option>
+												<option value="Category 3">Section 1</option>
+											</select>
+										</div>
+										-->
+
+										<div class="form-group">
+											<label class="control-label">Question Type</label> <select
+												id="questionTypeSelect" class="form-control"
+												data-placeholder="Choose a Category" tabindex="1">
 												<!--<option value="Category 1">-- Question Type --</option>  -->
 												<option value="Category 3">Multi Choice Radio</option>
 												<option value="Category 2">Multi Choice Check</option>
@@ -181,7 +269,7 @@
 											</div>
 										</div>
 
-										<div class="questionTypeBox" style="display:none;">
+										<div class="questionTypeBox" style="display: none;">
 											<div class="form-group">
 												<label class="control-label">Option A</label>
 												<textarea class="form-control" rows="1"></textarea>
@@ -228,7 +316,7 @@
 											</div>
 										</div>
 
-										<div class="questionTypeBox" style="display:none;">
+										<div class="questionTypeBox" style="display: none;">
 											<div class="form-group">
 												<label class="control-label">Check the correct
 													option</label>
@@ -236,8 +324,7 @@
 													<label class="radio-inline"> <input type="radio"
 														name="optionsRadios2" value="option1"> True
 													</label> <label class="radio-inline"> <input type="radio"
-														name="optionsRadios2" value="option2">
-														False
+														name="optionsRadios2" value="option2"> False
 													</label>
 												</div>
 											</div>
@@ -259,6 +346,14 @@
 												<option value="Category 3">Intermediate</option>
 												<option value="Category 3">Advanced</option>
 											</select>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label">Mark(s)</label> <input
+												class="vertical-spin" type="text"
+												data-bts-button-down-class="btn btn-default btn-outline"
+												data-bts-button-up-class="btn btn-default btn-outline"
+												value="1" name="vertical-spin">
 										</div>
 
 										<div class="form-group">
@@ -513,6 +608,12 @@
 	<!--slimscroll JavaScript -->
 	<script src="<c:url value="/js/jquery.slimscroll.js" />"></script>
 	<script
+		src="<c:url value="/plugins/bower_components/custom-select/custom-select.min.js" />"
+		type="text/javascript"></script>
+	<script
+		src="<c:url value="/plugins/bower_components/bootstrap-select/bootstrap-select.min.js" />"
+		type="text/javascript"></script>
+	<script
 		src="<c:url value="/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" />"
 		type="text/javascript"></script>
 	<script
@@ -537,7 +638,20 @@
 			height : '250px',
 			alwaysVisible : true
 		});
-		$("input[name='tch3']").TouchSpin();
+		// For select 2
+		$(".select2").select2();
+		//Bootstrap-TouchSpin
+		$(".vertical-spin").TouchSpin({
+			verticalbuttons : true,
+			verticalupclass : 'ti-plus',
+			verticaldownclass : 'ti-minus'
+		});
+		var vspinTrue = $(".vertical-spin").TouchSpin({
+			verticalbuttons : true
+		});
+		if (vspinTrue) {
+			$('.vertical-spin').prev('.bootstrap-touchspin-prefix').remove();
+		}
 	</script>
 	<!--Wave Effects -->
 	<script src="<c:url value="/js/waves.js" />"></script>
