@@ -24,4 +24,16 @@ public class DashboardController {
 		model.put("message", this.message);
 		return "options";
 	}
+	
+	@RequestMapping("/quiz")
+	public String newQuiz(Map<String, Object> model) {
+		model.put("message", this.message);
+		return "quiz";
+	}
+	
+	@RequestMapping("/question")
+	public String newQuestion(Map<String, Object> model) {
+		model.put("message", this.message);
+		return "question";
+	}
 }

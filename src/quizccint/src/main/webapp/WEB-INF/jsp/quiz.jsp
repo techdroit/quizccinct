@@ -19,6 +19,9 @@
 <link
 	href="<c:url value="/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" />"
 	rel="stylesheet">
+<link
+	href="<c:url value="/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />"
+	rel="stylesheet" />
 <!-- animation CSS -->
 <link href="<c:url value="/css/animate.css" />" rel="stylesheet">
 <!-- Custom CSS -->
@@ -72,7 +75,7 @@
 			<div class="container-fluid">
 				<div class="row bg-title">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<h4 class="page-title">Question Page</h4>
+						<h4 class="page-title">Quiz Page</h4>
 					</div>
 					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 						<button
@@ -91,273 +94,178 @@
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
-				<!-- .Row -->
 
-				<!-- /.Row -->
-				<!-- .Row -->
 
-				<%-- <%@include file="quiz-content.jsp" %>--%>
-				<form>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="white-box">
-								<!--  <h3 class="box-title">Both Scroll</h3> -->
-								<div class="row" style="">
-									<div class="form-group">
-										<div class="col-sm-9">
-											<div class="checkbox checkbox-success">
-												<input id="checkbox33" type="checkbox"> <label
-													for="checkbox33">Mark</label>
-											</div>
-										</div>
-										<!--  <label for="inputEmail3" class="col-sm-1 control-label">Username*</label>-->
-										<div class="col-sm-3">
-											<input type="email" class="form-control text-right"
-												id="inputEmail3" placeholder="Username"
-												value="Time Remaining: 00:00:00" readonly>
+				<div class="row">
+
+
+					<div class="col-md-6">
+						<div class="white-box">
+							<h3 class="box-title m-b-0">Sample Horizontal form</h3>
+							<p class="text-muted m-b-30 font-13">Use Bootstrap's
+								predefined grid classes for horizontal form</p>
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label for="inputEmail3" class="col-sm-3 control-label">Name*</label>
+									<div class="col-sm-9">
+										<input type="email" class="form-control" id="inputEmail3"
+											placeholder="Quiz Name">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="" class="col-sm-3 control-label">Description</label>
+									<div class="col-sm-9">
+										<input type="email" class="form-control" id=""
+											placeholder="Quiz Description">
+									</div>
+								</div>
+
+
+								<div class="form-group">
+									<label class="control-label col-md-3">Visibility</label>
+									<div class="col-md-9">
+										<select class="form-control"
+											data-placeholder="Choose a Category" tabindex="1">
+											<option value="Category 1">-- Select Quiz Visibility
+												--</option>
+											<option value="Category 2">Private</option>
+											<option value="Category 3">Public</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-md-3">Display</label>
+									<div class="col-md-9">
+										<select class="form-control"
+											data-placeholder="Choose a Category" tabindex="1">
+											<option value="Category 1">-- Select Quiz Format --</option>
+											<option value="Category 2">Horizontal</option>
+											<option value="Category 3">Vertical</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-md-3">Status</label>
+									<div class="col-md-9">
+										<select class="form-control"
+											data-placeholder="Choose a Category" tabindex="1">
+											<option value="Category 1">-- Select Quiz Status --</option>
+											<option value="Category 2">Active</option>
+											<option value="Category 3">Inactive</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-md-3">Selection</label>
+									<div class="col-md-9">
+										<select class="form-control"
+											data-placeholder="Choose a Category" tabindex="1">
+											<option value="Category 1">-- Select Question
+												Pattern --</option>
+											<option value="Category 2">Sequential</option>
+											<option value="Category 3">Random</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="inputEmail3" class="col-sm-3 control-label">Start
+										Date</label>
+									<div class="col-sm-9">
+										<input type="email" class="form-control" id="inputEmail3"
+											placeholder="Quiz Start Date">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="" class="col-sm-3 control-label">End Date</label>
+									<div class="col-sm-9">
+										<input type="email" class="form-control" id=""
+											placeholder="Quiz End Date">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-sm-offset-3 col-sm-9">
+										<div class="checkbox checkbox-success">
+											<input id="checkbox33" type="checkbox"> <label
+												for="checkbox33">Check me out !</label>
 										</div>
 									</div>
 								</div>
-								<hr>
-								<div id="slimtest2">
-									<div class="row">
+
+								<div class="form-group m-b-0">
+									<div class="col-sm-offset-3 col-sm-9">
+										<button type="submit"
+											class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+										<button type="submit"
+											class="btn btn-inverse waves-effect waves-light">Cancel</button>
+									</div>
+								</div>
+
+
+								<!--  
+								<div class="form-group m-b-0">
+									<div class="col-sm-offset-3 col-sm-9">
+										<button type="submit"
+											class="btn btn-info waves-effect waves-light m-t-10">Sign
+											in</button>
+									</div>
+								</div>
+								-->
+							</form>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="white-box">
+							<h3 class="box-title m-b-0">Sample Basic Forms</h3>
+							<p class="text-muted m-b-30 font-13">Bootstrap Elements</p>
+							<div class="row">
+								<div class="col-sm-12 col-xs-12">
+									<form>
 										<div class="form-group">
-											<div class="col-sm-2">
-												<input type="email" class="form-control" id="inputEmail3"
-													placeholder="" value="Item 03 of 685" readonly>
-											</div>
-											<div class="col-sm-10 text-right">
-												<button type="button"
-													class="btn btn-success waves-effect waves-light m-r-10">Show
-													Answer</button>
-												<button type="button"
-													class="btn btn-inverse waves-effect waves-light">Calculator</button>
-											</div>
+											<label for="exampleInputEmail1">User Name</label> <input
+												type="text" class="form-control" id="exampleInputEmail1"
+												placeholder="Enter Username">
 										</div>
-									</div>
-									<hr>
-									<div class="row">
-										<div class="col-sm-12">
-											<h4>Which of the following methods is used for
-												redirecting requests?</h4>
+										<div class="form-group">
+											<label for="exampleInputEmail1">Email address</label> <input
+												type="email" class="form-control" id="exampleInputEmail1"
+												placeholder="Enter email">
 										</div>
-									</div>
-
-
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="radio">
-													<input type="radio" name="radio" id="radio1"> <label
-														for="radio1" class="col-sm-1" style="width: 0;">
-														A.</label> <span class="col-sm-11">False</span>
-												</div>
+										<div class="form-group">
+											<label for="exampleInputPassword1">Password</label> <input
+												type="password" class="form-control"
+												id="exampleInputPassword1" placeholder="Password">
+										</div>
+										<div class="form-group">
+											<label for="exampleInputPassword1">Password</label> <input
+												type="password" class="form-control"
+												id="exampleInputPassword1" placeholder="Confirm Password">
+										</div>
+										<div class="form-group">
+											<div class="checkbox checkbox-success">
+												<input id="checkbox1" type="checkbox"> <label
+													for="checkbox1"> Remember me </label>
 											</div>
 										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="radio">
-													<input type="radio" name="radio" id="radio2"> <label
-														for="radio2" class="col-sm-1" style="width: 0;">
-														B.</label> <span class="col-sm-11">False</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<!--
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="checkbox">
-													<input type="checkbox" id="checkbox1"> <label
-														for="checkbox1" class="col-sm-1" style="width: 0;">
-														A.</label> <span class="col-sm-11">Bootstrap allows you to
-														group a series of buttons together (on a single line) in a
-														button group</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="checkbox">
-													<input type="checkbox" id="checkbox2"> <label
-														for="checkbox2" class="col-sm-1" style="width: 0;">
-														B.</label> <span class="col-sm-11">Bootstrap allows you to
-														group a series of buttons together (on a single line) in a
-														button group Bootstrap allows you to group a series of
-														buttons together (on a single line) in a button group</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="checkbox">
-													<input type="checkbox" id="checkbox3"> <label
-														for="checkbox3" class="col-sm-1" style="width: 0;">
-														C.</label> <span class="col-sm-11">Bootstrap allows you to
-														group a series of buttons together (on a single line) in a
-														button group</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-
-
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="checkbox">
-													<input type="checkbox" id="checkbox4"> <label
-														for="checkbox4" class="col-sm-1" style="width: 0;">
-														D.</label> <span class="col-sm-11">Bootstrap allows you to
-														group a series of buttons together (on a single line) in a
-														button group</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="checkbox">
-													<input type="checkbox" id="checkbox5"> <label
-														for="checkbox5" class="col-sm-1" style="width: 0;">
-														E.</label> <span class="col-sm-11">Bootstrap allows you to
-														group a series of buttons together (on a single line) in a
-														button group</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									-->
-
-									<!--
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="radio">
-													<input type="radio" name="radio" id="radio1"> <label
-														for="radio1" class="col-sm-1" style="width: 0;">
-														A.</label> <span class="col-sm-11">Bootstrap allows you to
-														group a series of buttons together (on a single line) in a
-														button group</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="radio">
-													<input type="radio" name="radio" id="radio2"> <label
-														for="radio2" class="col-sm-1" style="width: 0;">
-														B.</label> <span class="col-sm-11">Bootstrap allows you to
-														group a series of buttons together (on a single line) in a
-														button group Bootstrap allows you to group a series of
-														buttons together (on a single line) in a button group</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="radio">
-													<input type="radio" name="radio" id="radio3"> <label
-														for="radio3" class="col-sm-1" style="width: 0;">
-														C.</label> <span class="col-sm-11">Bootstrap allows you to
-														group a series of buttons together (on a single line) in a
-														button group</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-
-
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="radio">
-													<input type="radio" name="radio" id="radio4"> <label
-														for="radio4" class="col-sm-1" style="width: 0;">
-														D.</label> <span class="col-sm-11">Bootstrap allows you to
-														group a series of buttons together (on a single line) in a
-														button group</span>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="radio">
-													<input type="radio" name="radio" id="radio5"> <label
-														for="radio5" class="col-sm-1" style="width: 0;">
-														E.</label> <span class="col-sm-11">Bootstrap allows you to
-														group a series of buttons together (on a single line) in a
-														button group</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									-->
-
-
-								</div>
-								<hr>
-								<div class="row">
-									<div class="col-sm-12">Select the best choice</div>
-								</div>
-								<hr>
-								<div class="row">
-									<div class="form-group">
-										<div class="col-sm-6">
-											<button type="button"
-												class="btn btn-success waves-effect waves-light m-r-10">Previous</button>
-											<button type="button"
-												class="btn btn-inverse waves-effect waves-light">
-												Next</button>
-											<select class="selectpicker" data-style="form-control">
-												<option>Review</option>
-												<option>Review All</option>
-												<option>Review Incomplete</option>
-												<option>Review Marked</option>
-											</select>
-										</div>
-										<div class="col-sm-6 text-right">
-											<button type="button"
-												class="btn btn-success waves-effect waves-light m-r-10">Start
-												Exam</button>
-											<button type="button"
-												class="btn btn-inverse waves-effect waves-light">End
-												Exam</button>
-										</div>
-									</div>
+										<button type="submit"
+											class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+										<button type="submit"
+											class="btn btn-inverse waves-effect waves-light">Cancel</button>
+									</form>
 								</div>
 							</div>
 						</div>
 					</div>
-				</form>
-				<!-- /.Row -->
-				<!-- .Row -->
-				<!-- /.Row -->
-				<!-- .Row -->
+
+				</div>
+
 				<!-- ============================================================== -->
 				<!-- Right sidebar -->
 				<!-- ============================================================== -->
@@ -467,6 +375,9 @@
 	<!--slimscroll JavaScript -->
 	<script src="<c:url value="/js/jquery.slimscroll.js" />"></script>
 	<script
+		src="<c:url value="/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" />"
+		type="text/javascript"></script>
+	<script
 		src="<c:url value="/plugins/bower_components/bootstrap-select/bootstrap-select.min.js" />"
 		type="text/javascript"></script>
 	<script type="text/javascript">
@@ -488,6 +399,7 @@
 			height : '250px',
 			alwaysVisible : true
 		});
+		$("input[name='tch3']").TouchSpin();
 	</script>
 	<!--Wave Effects -->
 	<script src="<c:url value="/js/waves.js" />"></script>
