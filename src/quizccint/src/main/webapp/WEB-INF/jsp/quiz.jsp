@@ -22,6 +22,7 @@
 <link
 	href="<c:url value="/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />"
 	rel="stylesheet" />
+<!-- Date picker plugins css -->
 <!-- animation CSS -->
 <link href="<c:url value="/css/animate.css" />" rel="stylesheet">
 <!-- Custom CSS -->
@@ -29,6 +30,15 @@
 <!-- color CSS -->
 <link href="<c:url value="/css/colors/megna-dark.css" />" id="theme"
 	rel="stylesheet">
+<!-- Date Picker Plugin JavaScript -->
+<script
+	src="<c:url value="/plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js" />"></script>
+<!-- Date range Plugin JavaScript -->
+<script
+	src="<c:url value="/plugins/bower_components/timepicker/bootstrap-timepicker.min.js" />"></script>
+<script
+	src="<c:url value="/plugins/bower_components/bootstrap-daterangepicker/daterangepicker.js" />"></script>
+<!-- Daterange picker plugins css -->
 <link
 	href="<c:url value="/plugins/bower_components/bootstrap-select/bootstrap-select.min.css" />"
 	rel="stylesheet" />
@@ -98,6 +108,126 @@
 
 				<div class="row">
 
+					<div class="col-md-6">
+						<div class="white-box">
+							<h3 class="box-title m-b-0">Sample Basic Forms</h3>
+							<p class="text-muted m-b-30 font-13">Bootstrap Elements</p>
+							<div class="row">
+								<div class="col-sm-12 col-xs-12">
+									<form>
+										<div class="form-group">
+											<label for="exampleInputEmail1">Name*</label> <input
+												type="text" class="form-control" id="exampleInputEmail1"
+												placeholder="Quiz Name">
+										</div>
+
+										<div class="form-group">
+											<label for="exampleInputEmail1">Description</label> <input
+												type="text" class="form-control" id="exampleInputEmail1"
+												placeholder="Describe this quiz (optional)">
+										</div>
+
+										<div class="form-group">
+											<label class="control-label">Visibility</label> <select
+												class="form-control">
+												<option value="Category 2">Private</option>
+												<option value="Category 3">Public</option>
+											</select> <span class="help-block"> Select accessibility level
+											</span>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label">Display</label> <select
+												class="form-control">
+												<option value="Category 2">Horizontal</option>
+												<option value="Category 3">Vertical</option>
+											</select> <span class="help-block"> How the quiz questions are
+												displayed </span>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label">Status</label> <select
+												class="form-control">
+												<option value="Category 2">Active</option>
+												<option value="Category 3">Inactive</option>
+											</select> <span class="help-block"> The status of the quiz </span>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label">Selection</label> <select
+												class="form-control">
+												<option value="Category 2">Sequential</option>
+												<option value="Category 3">Random</option>
+											</select> <span class="help-block"> How questions are selected
+												from this quiz </span>
+										</div>
+
+										<div class="form-group">
+											<input class="form-control input-daterange-datepicker"
+												type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+										</div>
+
+										<div class="example">
+											<h5 class="box-title m-t-30">Date Range With Time</h5>
+											<input type="text"
+												class="form-control input-daterange-timepicker"
+												name="daterange"
+												value="01/01/2015 1:30 PM - 01/01/2015 2:00 PM" />
+										</div>
+
+										<!--
+										<div class="form-group">
+											<label for="exampleInputEmail1">User Name</label> <input
+												type="text" class="form-control" id="exampleInputEmail1"
+												placeholder="Enter Username">
+										</div>
+										<div class="form-group">
+											<label for="exampleInputEmail1">User Name</label> <input
+												type="text" class="form-control" id="exampleInputEmail1"
+												placeholder="Enter Username">
+										</div>
+										
+										<div class="form-group">
+											<label class="control-label">Gender</label> <select
+												class="form-control">
+												<option value="">Male</option>
+												<option value="">Female</option>
+											</select> <span class="help-block"> Select your gender </span>
+										</div>
+										<div class="form-group">
+											<label for="exampleInputEmail1">Email address</label> <input
+												type="email" class="form-control" id="exampleInputEmail1"
+												placeholder="Enter email">
+										</div>
+										<div class="form-group">
+											<label for="exampleInputPassword1">Password</label> <input
+												type="password" class="form-control"
+												id="exampleInputPassword1" placeholder="Password">
+										</div>
+										<div class="form-group">
+											<label for="exampleInputPassword1">Password</label> <input
+												type="password" class="form-control"
+												id="exampleInputPassword1" placeholder="Confirm Password">
+										</div>
+										<div class="form-group">
+											<div class="checkbox checkbox-success">
+												<input id="checkbox1" type="checkbox"> <label
+													for="checkbox1"> Remember me </label>
+											</div>
+										</div>
+										-->
+
+										<button type="submit"
+											class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+										<button type="submit"
+											class="btn btn-inverse waves-effect waves-light">Cancel</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
 
 					<div class="col-md-6">
 						<div class="white-box">
@@ -106,11 +236,9 @@
 								predefined grid classes for horizontal form</p>
 							<form class="form-horizontal">
 								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-3 control-label">Name*</label>
-									<div class="col-sm-9">
-										<input type="email" class="form-control" id="inputEmail3"
-											placeholder="Quiz Name">
-									</div>
+									<label for="inputEmail3" class="control-label">Name*</label> <input
+										type="email" class="form-control" id="inputEmail3"
+										placeholder="Quiz Name">
 								</div>
 
 								<div class="form-group">
@@ -218,49 +346,6 @@
 								</div>
 								-->
 							</form>
-						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="white-box">
-							<h3 class="box-title m-b-0">Sample Basic Forms</h3>
-							<p class="text-muted m-b-30 font-13">Bootstrap Elements</p>
-							<div class="row">
-								<div class="col-sm-12 col-xs-12">
-									<form>
-										<div class="form-group">
-											<label for="exampleInputEmail1">User Name</label> <input
-												type="text" class="form-control" id="exampleInputEmail1"
-												placeholder="Enter Username">
-										</div>
-										<div class="form-group">
-											<label for="exampleInputEmail1">Email address</label> <input
-												type="email" class="form-control" id="exampleInputEmail1"
-												placeholder="Enter email">
-										</div>
-										<div class="form-group">
-											<label for="exampleInputPassword1">Password</label> <input
-												type="password" class="form-control"
-												id="exampleInputPassword1" placeholder="Password">
-										</div>
-										<div class="form-group">
-											<label for="exampleInputPassword1">Password</label> <input
-												type="password" class="form-control"
-												id="exampleInputPassword1" placeholder="Confirm Password">
-										</div>
-										<div class="form-group">
-											<div class="checkbox checkbox-success">
-												<input id="checkbox1" type="checkbox"> <label
-													for="checkbox1"> Remember me </label>
-											</div>
-										</div>
-										<button type="submit"
-											class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
-										<button type="submit"
-											class="btn btn-inverse waves-effect waves-light">Cancel</button>
-									</form>
-								</div>
-							</div>
 						</div>
 					</div>
 
@@ -374,6 +459,15 @@
 		src="<c:url value="/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js" />"></script>
 	<!--slimscroll JavaScript -->
 	<script src="<c:url value="/js/jquery.slimscroll.js" />"></script>
+	<!-- Date Picker Plugin JavaScript -->
+	<!-- Date Picker Plugin JavaScript -->
+	<script
+		src="<c:url value="/plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js" />"></script>
+	<!-- Date range Plugin JavaScript -->
+	<script
+		src="<c:url value="/plugins/bower_components/timepicker/bootstrap-timepicker.min.js" />"></script>
+	<script
+		src="<c:url value="/plugins/bower_components/bootstrap-daterangepicker/daterangepicker.js" />"></script>
 	<script
 		src="<c:url value="/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" />"
 		type="text/javascript"></script>
@@ -400,6 +494,45 @@
 			alwaysVisible : true
 		});
 		$("input[name='tch3']").TouchSpin();
+		// Date Picker
+		jQuery('.mydatepicker, #datepicker').datepicker();
+		jQuery('#datepicker-autoclose').datepicker({
+			autoclose : true,
+			todayHighlight : true
+		});
+		jQuery('#date-range').datepicker({
+			toggleActive : true
+		});
+		jQuery('#datepicker-inline').datepicker({
+			todayHighlight : true
+		});
+		// Daterange picker
+		$('.input-daterange-datepicker').daterangepicker({
+			buttonClasses : [ 'btn', 'btn-sm' ],
+			applyClass : 'btn-danger',
+			cancelClass : 'btn-inverse'
+		});
+		$('.input-daterange-timepicker').daterangepicker({
+			timePicker : true,
+			format : 'MM/DD/YYYY h:mm A',
+			timePickerIncrement : 30,
+			timePicker12Hour : true,
+			timePickerSeconds : false,
+			buttonClasses : [ 'btn', 'btn-sm' ],
+			applyClass : 'btn-danger',
+			cancelClass : 'btn-inverse'
+		});
+		$('.input-limit-datepicker').daterangepicker({
+			format : 'MM/DD/YYYY',
+			minDate : '06/01/2015',
+			maxDate : '06/30/2015',
+			buttonClasses : [ 'btn', 'btn-sm' ],
+			applyClass : 'btn-danger',
+			cancelClass : 'btn-inverse',
+			dateLimit : {
+				days : 6
+			}
+		});
 	</script>
 	<!--Wave Effects -->
 	<script src="<c:url value="/js/waves.js" />"></script>
