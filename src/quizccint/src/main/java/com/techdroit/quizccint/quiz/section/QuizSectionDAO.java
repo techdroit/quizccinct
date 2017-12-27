@@ -34,10 +34,12 @@ public class QuizSectionDAO implements IQuizSectionDAO {
 
 	@Override
 	public void updateQuizSection(QuizSection quizSection) {
+		System.out.println(quizSection.getSectionId());
 		QuizSection qs = getQuizSectionById(quizSection.getSectionId());
-		//qs.setQuizId(quizSection.getQuizId());
-		//qs.setSectionName(quizSection.getSectionName());
-		//qs.setSectionDescription(quizSection.getSectionDescription());
+		qs.setQuizId(quizSection.getQuizId());
+		qs.setSectionName(quizSection.getSectionName());
+		qs.setSectionDescription(quizSection.getSectionDescription());
+		qs.setMakerComment(quizSection.getMakerComment());
 		entityManager.flush();
 	}
 

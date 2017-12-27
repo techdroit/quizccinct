@@ -1,7 +1,5 @@
 package com.techdroit.quizccint.quiz.section;
 
-import static org.springframework.test.web.client.response.MockRestResponseCreators.withCreatedEntity;
-
 import java.sql.Timestamp;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -46,16 +44,6 @@ public class QuizSectionController {
 		return "sections-info";
 	}
 
-	private void populateDefaultModel(Model model) {
-
-		List<QuizInfo> list = quizInfoService.getAllQuizInfo();
-		Map<Long, String> quizList = new LinkedHashMap<Long, String>();
-		for (QuizInfo q : list) {
-			quizList.put(q.getQuizId(), q.getQuizName());
-		}
-		model.addAttribute("quizList", quizList);
-	}
-
 	// save quiz section
 	@RequestMapping(value = "sections/add", method = RequestMethod.POST)
 	public String saveQuizSection(@ModelAttribute("quizSection") QuizSection quizSection, Model model,
@@ -98,9 +86,33 @@ public class QuizSectionController {
 		quizSection.setMakerId(1);
 		quizSection.setMakerDate(t);
 		quizSectionService.updateQuizSection(quizSection);
-		redirectAttributes.addFlashAttribute("msg", "Section \"" + quizSection.getSectionName() + "\" updated successfully");
+		redirectAttributes.addFlashAttribute("msg",
+				"Section \"" + quizSection.getSectionName() + "\" updated successfully");
 
 		return "redirect:/sections";
+	}
+
+	// show update form
+	@RequestMapping(value = "/sections/{sectionId}/delete", method = RequestMethod.GET)
+	public String deleteQuizInfo(@PathVariable("sectionId") long sectionId, Model model,
+			final RedirectAttributes redirectAttributes) {
+
+		QuizSection quizSection = quizSectionService.getQuizSectionById(sectionId);
+		quizSectionService.deleteQuizSection(sectionId);
+		redirectAttributes.addFlashAttribute("msg", "Section \"" + quizSection.getSectionName() + "\" deleted successfully");
+
+		return "redirect:/sections";
+
+	}
+
+	private void populateDefaultModel(Model model) {
+
+		List<QuizInfo> list = quizInfoService.getAllQuizInfo();
+		Map<Long, String> quizList = new LinkedHashMap<Long, String>();
+		for (QuizInfo q : list) {
+			quizList.put(q.getQuizId(), q.getQuizName());
+		}
+		model.addAttribute("quizList", quizList);
 	}
 
 }

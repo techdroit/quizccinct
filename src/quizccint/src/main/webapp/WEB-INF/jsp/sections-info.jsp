@@ -143,6 +143,7 @@
 												</div>
 											</c:when>
 											<c:otherwise>
+												<form:hidden path="sectionId" />
 												<div class="form-group">
 													<label for="">Quiz Id</label>
 													<form:input path="quizId" type="text" class="form-control"
@@ -157,10 +158,17 @@
 											<form:input path="sectionName" type="text"
 												class="form-control" id="" placeholder="Section Name" />
 										</div>
+
 										<div class="form-group">
 											<label for="">Section Description</label>
 											<form:input path="sectionDescription" type="text"
 												class="form-control" id="" placeholder="Section Description" />
+										</div>
+
+										<div class="form-group">
+											<label class="control-label">Comment</label>
+											<form:textarea path="makerComment" placeholder="Comment" class="form-control"
+												rows="1" />
 										</div>
 
 										<c:choose>
