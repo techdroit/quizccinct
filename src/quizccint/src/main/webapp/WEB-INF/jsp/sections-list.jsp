@@ -41,6 +41,7 @@
 </head>
 
 <body class="fix-header">
+	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<!-- ============================================================== -->
 	<!-- Preloader -->
 	<!-- ============================================================== -->
@@ -747,12 +748,34 @@
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
+
+
+				<c:if test="${not empty msg}">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="alert alert-success alert-dismissable">
+								<a href="#" class="close" data-dismiss="alert"
+									aria-label="close">&times;</a> ${msg}
+							</div>
+						</div>
+					</div>
+				</c:if>
+
+				<div class="row m-b-10">
+					<div class="col-lg-2 col-sm-4 col-xs-12">
+						<a href="${contextPath}/sections/add"
+							class="btn btn-block btn-outline btn-info"> Add Section </a>
+					</div>
+				</div>
+
 				<!-- /row -->
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="white-box">
+							<!--
 							<h3 class="box-title m-b-0">Data Table</h3>
 							<p class="text-muted m-b-30">Data table example</p>
+							-->
 							<div class="table-responsive">
 								<table id="myTable" class="table table-striped">
 									<thead>
@@ -766,14 +789,53 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-										</tr>
+										<c:forEach var="quizSection" items="${quizSectionList}"
+											varStatus="status">
+											<tr>
+												<td>${quizSection.sectionId}</td>
+												<td>${quizSection.sectionName}</td>
+												<td>${quizSection.sectionDescription}</td>
+												<td>${quizSection.quizId}</td>
+												<td>${quizSection.makerDate}</td>
+												<td class="text-nowrap"><a
+													href="${contextPath}/sections/${quizSection.sectionId}/update"
+													data-toggle="tooltip" data-original-title="Edit"> <i
+														class="fa fa-pencil text-inverse m-r-10"></i>
+												</a> <a href="#" data-original-title="Close" data-toggle="modal"
+													data-target="#myModal${status.count}"> <i
+														class="fa fa-close text-danger"></i>
+												</a></td>
+											</tr>
+
+											<!-- sample modal content -->
+											<div id="myModal${status.count}" class="modal fade"
+												tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+												aria-hidden="true">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal"
+																aria-hidden="true">×</button>
+															<h4 class="modal-title" id="myModalLabel">Delete
+																Quiz Section</h4>
+														</div>
+														<div class="modal-body">Are you sure you want to
+															delete ${quizSection.sectionName}?</div>
+														<div class="modal-footer">
+															<a
+																href="${contextPath}/sections/${quizSection.sectionId}/delete"
+																class="btn btn-danger waves-effect">Yes</a>
+															<button type="button" class="btn btn-info waves-effect"
+																data-dismiss="modal">No</button>
+														</div>
+													</div>
+													<!-- /.modal-content -->
+												</div>
+												<!-- /.modal-dialog -->
+											</div>
+											<!-- /.modal -->
+
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>

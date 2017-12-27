@@ -37,11 +37,11 @@ public class DashboardController {
 		return "question";
 	}
 	
-	@RequestMapping("/sections")
+	/*@RequestMapping("/sections")
 	public String newQuizSections(Map<String, Object> model) {
 		model.put("message", this.message);
 		return "sections";
-	}
+	}*/
 	
 	@RequestMapping("/quiz2")
 	public String newQuiz2(Map<String, Object> model) {

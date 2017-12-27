@@ -1,6 +1,8 @@
-<!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -19,6 +21,9 @@
 <link
 	href="<c:url value="/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" />"
 	rel="stylesheet">
+<link
+	href="<c:url value="/plugins/bower_components/custom-select/custom-select.css" />"
+	rel="stylesheet" type="text/css" />
 <link
 	href="<c:url value="/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />"
 	rel="stylesheet" />
@@ -41,6 +46,7 @@
 </head>
 
 <body class="fix-header">
+	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<!-- ============================================================== -->
 	<!-- Preloader -->
 	<!-- ============================================================== -->
@@ -96,40 +102,87 @@
 				</div>
 
 
+				<c:if test="${not empty msg}">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="alert alert-danger alert-dismissable">
+								<a href="#" class="close" data-dismiss="alert"
+									aria-label="close">&times;</a>${msg}
+							</div>
+						</div>
+					</div>
+				</c:if>
 
 				<div class="row">
 					<div class="col-md-6">
 						<div class="white-box">
-							<h3 class="box-title m-b-0">Sample Basic Forms</h3>
+							<c:choose>
+								<c:when test="${quizSection.sectionId == 0}">
+									<h3 class="box-title m-b-0">Add Quiz Section</h3>
+									<spring:url value="/sections/add" var="saveOrUpdateQuizSection" />
+								</c:when>
+								<c:otherwise>
+									<h3 class="box-title m-b-0">Update Quiz Section</h3>
+									<spring:url value="/sections/update"
+										var="saveOrUpdateQuizSection" />
+								</c:otherwise>
+							</c:choose>
 							<p class="text-muted m-b-30 font-13">Bootstrap Elements</p>
 							<div class="row">
 								<div class="col-sm-12 col-xs-12">
-									<form>
+									<form:form method="post" modelAttribute="quizSection"
+										action="${saveOrUpdateQuizSection}">
+
+										<c:choose>
+											<c:when test="${quizSection.sectionId == 0}">
+												<div class="form-group">
+													<label class="control-label">Quiz Name</label>
+													<form:select path="quizId" class="form-control"
+														items="${quizList}" />
+													<span class="help-block">Select quiz </span>
+												</div>
+											</c:when>
+											<c:otherwise>
+												<div class="form-group">
+													<label for="">Quiz Id</label>
+													<form:input path="quizId" type="text" class="form-control"
+														id="" placeholder="Quiz Id" readonly="true" />
+												</div>
+											</c:otherwise>
+										</c:choose>
+
+
 										<div class="form-group">
-											<label for="exampleInputEmail1">Quiz Name</label> <input
-												type="text" class="form-control" id="exampleInputEmail1"
-												placeholder="Quiz Name" readonly>
+											<label for="">Section Name</label>
+											<form:input path="sectionName" type="text"
+												class="form-control" id="" placeholder="Section Name" />
 										</div>
 										<div class="form-group">
-											<label for="exampleInputEmail1">Section Name</label> <input
-												type="text" class="form-control" id="exampleInputEmail1"
-												placeholder="Section Name">
+											<label for="">Section Description</label>
+											<form:input path="sectionDescription" type="text"
+												class="form-control" id="" placeholder="Section Description" />
 										</div>
-										<div class="form-group">
-											<label for="exampleInputEmail1">Section Description</label> <input
-												type="text" class="form-control" id="exampleInputEmail1"
-												placeholder="Section Description">
-										</div>
-										<button type="submit"
-											class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
-										<button type="submit"
-											class="btn btn-inverse waves-effect waves-light">Cancel</button>
-									</form>
+
+										<c:choose>
+											<c:when test="${quizSection.sectionId == 0}">
+												<button type="submit"
+													class="btn btn-success waves-effect waves-light m-r-10">Add</button>
+											</c:when>
+											<c:otherwise>
+												<button type="submit"
+													class="btn btn-success waves-effect waves-light m-r-10">Update</button>
+											</c:otherwise>
+										</c:choose>
+
+										<a href="${contextPath}/sections"
+											class="btn btn-inverse waves-effect waves-light">Cancel</a>
+
+
+									</form:form>
 								</div>
 							</div>
 						</div>
 					</div>
-
 				</div>
 
 				<!-- ============================================================== -->
@@ -241,6 +294,9 @@
 	<!--slimscroll JavaScript -->
 	<script src="<c:url value="/js/jquery.slimscroll.js" />"></script>
 	<script
+		src="<c:url value="/plugins/bower_components/custom-select/custom-select.min.js" />"
+		type="text/javascript"></script>
+	<script
 		src="<c:url value="/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" />"
 		type="text/javascript"></script>
 	<script
@@ -266,6 +322,8 @@
 			alwaysVisible : true
 		});
 		$("input[name='tch3']").TouchSpin();
+		// For select 2
+		$(".select2").select2();
 	</script>
 	<!--Wave Effects -->
 	<script src="<c:url value="/js/waves.js" />"></script>
