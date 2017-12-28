@@ -31,11 +31,11 @@ public class DashboardController {
 		return "quiz";
 	}
 	
-	@RequestMapping("/question")
+	/*@RequestMapping("/question")
 	public String newQuestion(Map<String, Object> model) {
 		model.put("message", this.message);
 		return "question";
-	}
+	}*/
 	
 	/*@RequestMapping("/sections")
 	public String newQuizSections(Map<String, Object> model) {

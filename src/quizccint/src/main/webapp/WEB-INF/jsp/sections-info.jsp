@@ -135,12 +135,25 @@
 
 										<c:choose>
 											<c:when test="${quizSection.sectionId == 0}">
-												<div class="form-group">
-													<label class="control-label">Quiz Name</label>
-													<form:select path="quizId" class="form-control"
-														items="${quizList}" />
-													<span class="help-block">Select quiz </span>
-												</div>
+
+												<c:choose>
+													<c:when test="${quizSection.quizId == 0}">
+														<div class="form-group">
+															<label class="control-label">Quiz Name</label>
+															<form:select path="quizId" class="form-control"
+																items="${quizList}" />
+															<span class="help-block">Select quiz </span>
+														</div>
+													</c:when>
+													<c:otherwise>
+														<div class="form-group">
+															<label for="">Quiz Id</label>
+															<form:input path="quizId" type="text"
+																class="form-control" id="" placeholder="Quiz Id"
+																readonly="true" />
+														</div>
+													</c:otherwise>
+												</c:choose>
 											</c:when>
 											<c:otherwise>
 												<form:hidden path="sectionId" />
@@ -167,8 +180,8 @@
 
 										<div class="form-group">
 											<label class="control-label">Comment</label>
-											<form:textarea path="makerComment" placeholder="Comment" class="form-control"
-												rows="1" />
+											<form:textarea path="makerComment" placeholder="Comment"
+												class="form-control" rows="1" />
 										</div>
 
 										<c:choose>

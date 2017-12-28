@@ -730,7 +730,7 @@
 			<div class="container-fluid">
 				<div class="row bg-title">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<h4 class="page-title">Data Table</h4>
+						<h4 class="page-title">Question Management</h4>
 					</div>
 					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 						<button
@@ -748,7 +748,6 @@
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
-				<!-- /row -->
 
 				<c:if test="${not empty msg}">
 					<div class="row">
@@ -761,81 +760,50 @@
 					</div>
 				</c:if>
 
+				<%--
 				<div class="row m-b-10">
 					<div class="col-lg-2 col-sm-4 col-xs-12">
-						<a href="${contextPath}/quizzes/add"
-							class="btn btn-block btn-outline btn-info"> Add Quiz </a>
+						<a href="${contextPath}/questions/add"
+							class="btn btn-block btn-outline btn-info"> Add Question </a>
 					</div>
 				</div>
+				 --%>
 
+				<!-- /row -->
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="white-box">
-							<!--
+							<!-- 
 							<h3 class="box-title m-b-0">Data Table</h3>
 							<p class="text-muted m-b-30">Data table example</p>
-							-->
+							 -->
 							<div class="table-responsive">
 								<table id="myTable" class="table table-striped">
 									<thead>
 										<tr>
 											<th>Id</th>
-											<th>Name</th>
-											<th>Status</th>
-											<th>Start Date</th>
-											<th>End date</th>
-											<th>Visibility</th>
+											<th>Question</th>
+											<th>Quiz</th>
+											<th>Section</th>
 											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="quiz" items="${quizList}" varStatus="status">
+										<c:forEach var="q" items="${questionList}" varStatus="status">
 											<tr>
-												<td>${quiz.quizId}</td>
-												<td>${quiz.quizName}</td>
-												<td>${quiz.statusId}</td>
-												<td>${quiz.startDate}</td>
-												<td>${quiz.endDate}</td>
-												<td>${quiz.visibilityModeId}</td>
-												<td class="text-nowrap"><a
-													href="${contextPath}/sections/${quiz.quizId}/add"
-													data-toggle="tooltip" data-original-title="Add Section"> <i
-														class="fa fa-plus text-inverse m-r-10"></i>
-												</a> <a href="${contextPath}/quizzes/${quiz.quizId}/update"
+												<td>${q.questionId}</td>
+												<td>${q.questionName}</td>
+												<td>${q.quizId}</td>
+												<td>${q.sectionId}</td>
+												<td><a
+													href="${contextPath}/questions/${q.quizId}/${q.sectionId}/add"
+													data-toggle="tooltip" data-original-title="Add Question">
+														<i class="fa fa-plus text-inverse m-r-10"></i>
+												</a><a href="${contextPath}/questions/${q.questionId}/update"
 													data-toggle="tooltip" data-original-title="Edit"> <i
 														class="fa fa-pencil text-inverse m-r-10"></i>
-												</a> <a href="#" data-original-title="Close" data-toggle="modal"
-													data-target="#myModal${status.count}"> <i
-														class="fa fa-close text-danger"></i>
 												</a></td>
 											</tr>
-
-											<!-- sample modal content -->
-											<div id="myModal${status.count}" class="modal fade"
-												tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-												aria-hidden="true">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button type="button" class="close" data-dismiss="modal"
-																aria-hidden="true">×</button>
-															<h4 class="modal-title" id="myModalLabel">Delete
-																Quiz</h4>
-														</div>
-														<div class="modal-body">Are you sure you want to
-															delete ${quiz.quizName}?</div>
-														<div class="modal-footer">
-															<a href="${contextPath}/quizzes/${quiz.quizId}/delete"
-																class="btn btn-danger waves-effect">Yes</a>
-															<button type="button" class="btn btn-info waves-effect"
-																data-dismiss="modal">No</button>
-														</div>
-													</div>
-													<!-- /.modal-content -->
-												</div>
-												<!-- /.modal-dialog -->
-											</div>
-											<!-- /.modal -->
 										</c:forEach>
 									</tbody>
 								</table>
@@ -843,7 +811,6 @@
 						</div>
 					</div>
 				</div>
-
 				<!-- /.row -->
 				<!-- ============================================================== -->
 				<!-- Right sidebar -->

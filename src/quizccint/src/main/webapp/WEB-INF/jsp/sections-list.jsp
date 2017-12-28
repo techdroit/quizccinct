@@ -798,6 +798,10 @@
 												<td>${quizSection.quizId}</td>
 												<td>${quizSection.makerDate}</td>
 												<td class="text-nowrap"><a
+													href="${contextPath}/questions/${quizSection.quizId}/${quizSection.sectionId}/add"
+													data-toggle="tooltip" data-original-title="Add Question">
+														<i class="fa fa-plus text-inverse m-r-10"></i>
+												</a><a
 													href="${contextPath}/sections/${quizSection.sectionId}/update"
 													data-toggle="tooltip" data-original-title="Edit"> <i
 														class="fa fa-pencil text-inverse m-r-10"></i>

@@ -44,6 +44,17 @@ public class QuizSectionController {
 		return "sections-info";
 	}
 
+	@RequestMapping(value = "sections/{quizId}/add", method = RequestMethod.GET)
+	public String showAddQuizSectionForm2(@PathVariable("quizId") long quizId, Model model) {
+
+		QuizSection quizSection = new QuizSection();
+		quizSection.setQuizId(quizId);
+		model.addAttribute("quizSection", quizSection);
+		populateDefaultModel(model);
+
+		return "sections-info";
+	}
+
 	// save quiz section
 	@RequestMapping(value = "sections/add", method = RequestMethod.POST)
 	public String saveQuizSection(@ModelAttribute("quizSection") QuizSection quizSection, Model model,
@@ -99,7 +110,8 @@ public class QuizSectionController {
 
 		QuizSection quizSection = quizSectionService.getQuizSectionById(sectionId);
 		quizSectionService.deleteQuizSection(sectionId);
-		redirectAttributes.addFlashAttribute("msg", "Section \"" + quizSection.getSectionName() + "\" deleted successfully");
+		redirectAttributes.addFlashAttribute("msg",
+				"Section \"" + quizSection.getSectionName() + "\" deleted successfully");
 
 		return "redirect:/sections";
 
