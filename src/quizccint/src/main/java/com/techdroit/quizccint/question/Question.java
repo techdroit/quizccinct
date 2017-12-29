@@ -11,77 +11,83 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="quiz_ques")
-public class Question implements Serializable{
+@Table(name = "quiz_ques")
+public class Question implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="ques_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ques_id")
 	private long questionId;
-	
-	@Column(name="quiz_id")
+
+	@Column(name = "quiz_id")
 	private long quizId;
-	
-	@Column(name="sect_id")
+
+	@Column(name = "sect_id")
 	private long sectionId;
-	
-	@Column(name="ques_name")
+
+	@Column(name = "ques_name")
 	private String questionName;
-	
-	@Column(name="ques_desc")
-	private String questionDescription;
-	
-	@Column(name="status_id")
+
+	@Column(name = "ques_ref")
+	private String questionReference;
+
+	@Column(name = "status_id")
 	private boolean statusId;
-	
-	@Column(name="ques_type_id")
+
+	@Column(name = "ques_type_id")
 	private byte questionTypeId;
-	
-	@Column(name="diff_level_id")
+
+	@Column(name = "diff_level_id")
 	private byte difficultyLevelId;
-	
-	@Column(name="option_a")
+
+	@Column(name = "option_a")
 	private String optionA;
-	
-	@Column(name="option_b")
+
+	@Column(name = "option_b")
 	private String optionB;
-	
-	@Column(name="option_c")
+
+	@Column(name = "option_c")
 	private String optionC;
-	
-	@Column(name="option_d")
+
+	@Column(name = "option_d")
 	private String optionD;
-	
-	@Column(name="option_e")
+
+	@Column(name = "option_e")
 	private String optionE;
+
+	@Column(name = "option_a_valid")
+	private boolean optionAAnswer;
+
+	@Column(name = "option_b_valid")
+	private boolean optionBAnswer;
+
+	@Column(name = "option_c_valid")
+	private boolean optionCAnswer;
+
+	@Column(name = "option_d_valid")
+	private boolean optionDAnswer;
+
+	@Column(name = "option_e_valid")
+	private boolean optionEAnswer;
+
+	@Column(name = "option_radio_val")
+	private byte optionValue;
 	
-	@Column(name="option_a_valid")
-	private boolean optionAStatus;
+	@Column(name = "option_true_or_false")
+	private boolean optionCorrect;
 	
-	@Column(name="option_b_valid")
-	private boolean optionBStatus;
-	
-	@Column(name="option_c_valid")
-	private boolean optionCStatus;
-	
-	@Column(name="option_d_valid")
-	private boolean optionDStatus;
-	
-	@Column(name="option_e_valid")
-	private boolean optionEStatus;
-	
-	@Column(name="option_index")
-	private byte optionIndex;
-	
-	@Column(name="mk_id")
+	@Column(name = "ques_marks")
+	private byte questionMarks;
+
+	@Column(name = "mk_id")
 	private long makerId;
-	
-	@Column(name="mk_date")
+
+	@Column(name = "mk_date")
 	private Timestamp makerDate;
-	
-	@Column(name="mk_comment")
+
+	@Column(name = "mk_comment")
 	private String makerComment;
 
 	public long getQuestionId() {
@@ -116,12 +122,12 @@ public class Question implements Serializable{
 		this.questionName = questionName;
 	}
 
-	public String getQuestionDescription() {
-		return questionDescription;
+	public String getQuestionReference() {
+		return questionReference;
 	}
 
-	public void setQuestionDescription(String questionDescription) {
-		this.questionDescription = questionDescription;
+	public void setQuestionReference(String questionReference) {
+		this.questionReference = questionReference;
 	}
 
 	public boolean isStatusId() {
@@ -188,52 +194,68 @@ public class Question implements Serializable{
 		this.optionE = optionE;
 	}
 
-	public boolean isOptionAStatus() {
-		return optionAStatus;
+	public boolean isOptionAAnswer() {
+		return optionAAnswer;
 	}
 
-	public void setOptionAStatus(boolean optionAStatus) {
-		this.optionAStatus = optionAStatus;
+	public void setOptionAAnswer(boolean optionAAnswer) {
+		this.optionAAnswer = optionAAnswer;
 	}
 
-	public boolean isOptionBStatus() {
-		return optionBStatus;
+	public boolean isOptionBAnswer() {
+		return optionBAnswer;
 	}
 
-	public void setOptionBStatus(boolean optionBStatus) {
-		this.optionBStatus = optionBStatus;
+	public void setOptionBAnswer(boolean optionBAnswer) {
+		this.optionBAnswer = optionBAnswer;
 	}
 
-	public boolean isOptionCStatus() {
-		return optionCStatus;
+	public boolean isOptionCAnswer() {
+		return optionCAnswer;
 	}
 
-	public void setOptionCStatus(boolean optionCStatus) {
-		this.optionCStatus = optionCStatus;
+	public void setOptionCAnswer(boolean optionCAnswer) {
+		this.optionCAnswer = optionCAnswer;
 	}
 
-	public boolean isOptionDStatus() {
-		return optionDStatus;
+	public boolean isOptionDAnswer() {
+		return optionDAnswer;
 	}
 
-	public void setOptionDStatus(boolean optionDStatus) {
-		this.optionDStatus = optionDStatus;
+	public void setOptionDAnswer(boolean optionDAnswer) {
+		this.optionDAnswer = optionDAnswer;
 	}
 
-	public boolean isOptionEStatus() {
-		return optionEStatus;
+	public boolean isOptionEAnswer() {
+		return optionEAnswer;
 	}
 
-	public void setOptionEStatus(boolean optionEStatus) {
-		this.optionEStatus = optionEStatus;
+	public void setOptionEAnswer(boolean optionEAnswer) {
+		this.optionEAnswer = optionEAnswer;
 	}
 
-	public byte getOptionIndex() {
-		return optionIndex;
+	public byte getOptionValue() {
+		return optionValue;
 	}
 
-	public void setOptionIndex(byte optionIndex) {
-		this.optionIndex = optionIndex;
+	public void setOptionValue(byte optionValue) {
+		this.optionValue = optionValue;
+	}
+
+	public boolean isOptionCorrect() {
+		return optionCorrect;
+	}
+
+	public void setOptionCorrect(boolean optionCorrect) {
+		this.optionCorrect = optionCorrect;
+	}
+
+	public byte getQuestionMarks() {
+		return questionMarks;
+	}
+
+	public void setQuestionMarks(byte questionMarks) {
+		this.questionMarks = questionMarks;
 	}
 
 	public long getMakerId() {

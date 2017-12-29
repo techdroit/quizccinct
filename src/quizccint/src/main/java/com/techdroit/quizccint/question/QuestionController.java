@@ -102,6 +102,20 @@ public class QuestionController {
 
 	}
 
+	// update quiz
+	@RequestMapping(value = "questions/{questionId}/update", method = RequestMethod.POST)
+	public String updateQuizInfo(@ModelAttribute("question") Question question,
+			@PathVariable("questionId") long questionId, Model model, final RedirectAttributes redirectAttributes) {
+
+		Timestamp t = new Timestamp(System.currentTimeMillis());
+		question.setMakerId(1);
+		question.setMakerDate(t);
+		questionService.updateQuestion(question);
+		redirectAttributes.addFlashAttribute("msg", "Question " + question.getQuestionId() + " updated successfully");
+
+		return "redirect:/questions";
+	}
+
 	private void populateDefaultModel(Model model) {
 
 		List<QuizSection> list = quizSectionService.getAllQuizSections();

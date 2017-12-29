@@ -49,7 +49,26 @@ public class QuestionDAO implements IQuestionDAO {
 	@Override
 	public void updateQuestion(Question question) {
 		Question q = getQuestionById(question.getQuestionId());
+		q.setQuizId(question.getQuizId());
+		q.setSectionId(question.getSectionId());
+		q.setQuestionTypeId(question.getQuestionTypeId());
+		q.setQuestionReference(question.getQuestionReference());
 		q.setQuestionName(question.getQuestionName());
+		q.setOptionA(question.getOptionA());
+		q.setOptionB(question.getOptionB());
+		q.setOptionC(question.getOptionC());
+		q.setOptionD(question.getOptionD());
+		q.setOptionE(question.getOptionE());
+		q.setOptionAAnswer(question.isOptionAAnswer());
+		q.setOptionBAnswer(question.isOptionBAnswer());
+		q.setOptionCAnswer(question.isOptionCAnswer());
+		q.setOptionDAnswer(question.isOptionDAnswer());
+		q.setOptionEAnswer(question.isOptionEAnswer());
+		q.setOptionValue(question.getOptionValue());
+		q.setOptionCorrect(question.isOptionCorrect());
+		q.setDifficultyLevelId(question.getDifficultyLevelId());
+		q.setQuestionMarks(question.getQuestionMarks());
+		q.setStatusId(question.isStatusId());
 		entityManager.flush();
 	}
 
