@@ -67,6 +67,14 @@ public class QuestionController {
 
 		return "question-info";
 	}
+	
+	private void updateNumberOfQuestions(Question question) {
+		
+		QuizSection quizSection = quizSectionService.getQuizSectionById(question.getSectionId());
+		List<Question> questionsList = questionService.getAllQuestionsByQuizIdAndSection(question.getQuizId(), question.getSectionId());
+		quizSection.setNumberOfQuestions(questionsList.size());
+		quizSectionService.updateQuizSection(quizSection);
+	}
 
 	// save quiz
 	@RequestMapping(value = "questions/{quizId}/{sectionId}/add", method = RequestMethod.POST)
@@ -77,7 +85,8 @@ public class QuestionController {
 		question.setMakerId(1);
 		question.setMakerDate(t);
 		if (questionService.addQuestion(question)) {
-
+			
+			updateNumberOfQuestions(question);
 			redirectAttributes.addFlashAttribute("msg", "Question added successfully");
 
 		} else {

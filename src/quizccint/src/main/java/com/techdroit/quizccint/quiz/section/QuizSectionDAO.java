@@ -21,6 +21,13 @@ public class QuizSectionDAO implements IQuizSectionDAO {
 		String hql = "FROM QuizSection";
 		return (List<QuizSection>) entityManager.createQuery(hql).getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<QuizSection> getAllQuizSectionsByQuizId(long quizId) {
+		String hql = "FROM QuizSection q WHERE q.quizId = ?";
+		return (List<QuizSection>) entityManager.createQuery(hql).setParameter(1, quizId).getResultList();
+	}
 
 	@Override
 	public QuizSection getQuizSectionById(long sectionId) {
