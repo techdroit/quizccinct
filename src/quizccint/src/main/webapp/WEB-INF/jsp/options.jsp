@@ -118,7 +118,7 @@
 													<option value="${quizInfo.quizId}">${quizInfo.quizName}</option>
 												</c:forEach>
 											</select>
-											<button type="submit" id=""
+											<button type="submit" name="optionsBtn" value="loadSections"
 												class="btn btn-inverse waves-effect waves-light">Load Sections</button>
 										</div>
 									</div>
@@ -143,6 +143,8 @@
 												<c:set var="totalQuestions" value="${0}" />
 												<c:forEach var="quizSection" items="${quizSectionList}" varStatus="status">
 													<div class="checkbox"><input value="${quizSection.numberOfQuestions}" class="sectionCheckBoxes" type="checkbox" checked><label for="">${quizSection.sectionDescription}</label> <a href="#"><span class="badge badge-success">${quizSection.numberOfQuestions}</span></a></div>
+													<input type="hidden" name="quizSections" value="${quizSection.sectionId}" >
+													<input type="hidden" name="quizSectionsSelected" class="quizSectionsSelected" value="1">
 													<c:set var="totalQuestions" value="${totalQuestions + quizSection.numberOfQuestions}" />
 												</c:forEach>
 										</div>
@@ -160,8 +162,6 @@
 										</div>
 									</div>
 									</c:if>
-									
-									
 								</div>
 								<hr>
 								<div class="row">
@@ -171,7 +171,7 @@
 												placeholder="" value="Total Questions Selected: ${totalQuestions}" readonly>
 										</div>
 										<div class="col-sm-9 text-right">
-											<button type="button" id="continueBtn" 
+											<button type="submit" id="continueBtn" name="optionsBtn" value="continue" 
 												class="btn btn-success waves-effect waves-light m-r-10"  <c:if test="${!hasSections}">disabled</c:if>>Continue</button>
 										</div>
 									</div>
@@ -382,6 +382,7 @@
 				
 				$('.sectionCheckBoxes').prop('checked',true);
 				sumNumberOfQuestions();
+				quizSectionsSelected();
 				
 			});
 			
@@ -389,12 +390,32 @@
 				
 				$('.sectionCheckBoxes').prop('checked',false);
 				sumNumberOfQuestions();
+				quizSectionsSelected();
 			});
 			
 			$(".sectionCheckBoxes").click(function(){
 				sumNumberOfQuestions();
+				quizSectionsSelected();
 			});
 		//var 
+		
+		function quizSectionsSelected(){
+			
+			$(".sectionCheckBoxes").each(function(i){
+				
+				if($(this).prop("checked") == true){
+					
+					//$('.quizSectionsSelected').eq(i).prop("checked",true);
+					$('.quizSectionsSelected').eq(i).val(1);
+					
+				}else{
+					
+					//$('.quizSectionsSelected').eq(i).prop("checked",false);
+					$('.quizSectionsSelected').eq(i).val(0);
+				}
+				
+			});
+		}
 		
 		function sumNumberOfQuestions(){
 				

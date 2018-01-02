@@ -265,9 +265,9 @@
 													option</label>
 												<div class="radio-list">
 													<label class="radio-inline"> <form:radiobutton
-															path="optionCorrect" value="0" />False
+															path="optionCorrect" value="1" />False
 													</label> <label class="radio-inline"> <form:radiobutton
-															path="optionCorrect" value="1" />True
+															path="optionCorrect" value="2" />True
 													</label>
 												</div>
 											</div>

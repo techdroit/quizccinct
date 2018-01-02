@@ -10,8 +10,7 @@ public class Answer {
 	private boolean optionDAnswer;
 	private boolean optionEAnswer;
 	private byte optionValue;
-	private boolean optionCorrect;
-	
+	private byte optionCorrect;
 	public long getQuestionId() {
 		return questionId;
 	}
@@ -60,10 +59,10 @@ public class Answer {
 	public void setOptionValue(byte optionValue) {
 		this.optionValue = optionValue;
 	}
-	public boolean isOptionCorrect() {
+	public byte getOptionCorrect() {
 		return optionCorrect;
 	}
-	public void setOptionCorrect(boolean optionCorrect) {
+	public void setOptionCorrect(byte optionCorrect) {
 		this.optionCorrect = optionCorrect;
 	}
 }

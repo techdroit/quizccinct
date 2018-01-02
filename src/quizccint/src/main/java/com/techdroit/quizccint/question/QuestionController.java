@@ -29,17 +29,20 @@ public class QuestionController {
 
 	@Autowired
 	private IQuizInfoService quizInfoService;
-	
+
 	@Autowired
 	private IQuizSectionService quizSectionService;
-	
+
 	@Autowired
 	private IQuestionService questionService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String showQuizForm(Model model, HttpServletRequest request) {
 
-		List<Question> questionList = questionService.getAllQuestions();
+		// HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession();
+		//List<Question> questionList = questionService.getAllQuestions();
+		List<Question> questionList = (List<Question>)session.getAttribute("questionList");
 
 		// Create answer sheet for the questions
 		Answer[] answersArray = new Answer[questionList.size()];
@@ -50,19 +53,20 @@ public class QuestionController {
 			answersArray[i] = a;
 		}
 
-		HttpSession session = request.getSession(true);
-		session.setAttribute("questionList", questionList);
+		//session.setAttribute("questionList", questionList);
 		session.setAttribute("answersArray", answersArray);
 
 		Question question = questionList.get(0);
-		
+
 		QuizInfo quizInfo = quizInfoService.getQuizInfoById(question.getQuizId());
-		//model.addAttribute("quizTitle", quizInfo.getQuizName() + ": " + quizInfo.getQuizDescription());
-		//session.setAttribute("quizTitle",  quizInfo.getQuizName() + ": " + quizInfo.getQuizDescription());
-		
+		// model.addAttribute("quizTitle", quizInfo.getQuizName() + ": " +
+		// quizInfo.getQuizDescription());
+		// session.setAttribute("quizTitle", quizInfo.getQuizName() + ": " +
+		// quizInfo.getQuizDescription());
+
 		model.addAttribute("quizTitle", quizInfo.getQuizName());
-		session.setAttribute("quizTitle",  quizInfo.getQuizName());
-		
+		session.setAttribute("quizTitle", quizInfo.getQuizName());
+
 		Answer answer = getAppropiateAnswer(answersArray, question.getQuestionId());
 
 		model.addAttribute("question", question);
@@ -129,8 +133,8 @@ public class QuestionController {
 
 		List<Question> questionList = (List<Question>) session.getAttribute("questionList");
 		Question question = questionList.get(currQuestion - 1);
-		
-		String quizTitle = (String)session.getAttribute("quizTitle");
+
+		String quizTitle = (String) session.getAttribute("quizTitle");
 		model.addAttribute("quizTitle", quizTitle);
 
 		answer = getAppropiateAnswer(answersArray, question.getQuestionId());
