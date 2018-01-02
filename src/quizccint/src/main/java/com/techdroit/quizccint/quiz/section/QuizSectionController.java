@@ -6,14 +6,18 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.techdroit.quizccint.question.IQuestionService;
 import com.techdroit.quizccint.quiz.info.IQuizInfoService;
 import com.techdroit.quizccint.quiz.info.QuizInfo;
 
@@ -25,7 +29,16 @@ public class QuizSectionController {
 
 	@Autowired
 	private IQuizInfoService quizInfoService;
+	
+	@Autowired
+	private IQuestionService questionService;
 
+	@GetMapping("sections/{quizId}")
+	public ResponseEntity<List<QuizSection>> getAllQuizSections(@PathVariable("quizId") long quizId){
+		List<QuizSection> list = quizSectionService.getAllQuizSectionsByQuizId(quizId);
+		return new ResponseEntity<List<QuizSection>>(list, HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = { "sections" }, method = RequestMethod.GET)
 	public String showAllQuizSections(Model model) {
 
@@ -59,12 +72,12 @@ public class QuizSectionController {
 	@RequestMapping(value = "sections/add", method = RequestMethod.POST)
 	public String saveQuizSection(@ModelAttribute("quizSection") QuizSection quizSection, Model model,
 			final RedirectAttributes redirectAttributes) {
-
+		
 		Timestamp t = new Timestamp(System.currentTimeMillis());
 		quizSection.setMakerId(1);
 		quizSection.setMakerDate(t);
 		if (quizSectionService.addQuizSection(quizSection)) {
-
+			
 			redirectAttributes.addFlashAttribute("msg", "Section added successfully");
 
 		} else {

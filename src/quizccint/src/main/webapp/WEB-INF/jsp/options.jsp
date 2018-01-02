@@ -1,6 +1,8 @@
-<!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -100,114 +102,84 @@
 				<!-- .Row -->
 
 				<%-- <%@include file="quiz-content.jsp" %>--%>
-				<form>
+				<form method="post">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="white-box">
+							   <c:set var="hasSections" value="${not empty quizSectionList}" />
+							   
 								<div class="row">
 									<div class="form-group">
 										<div class="col-sm-6">
-											<select class="selectpicker" data-style="form-control">
-												<option>-- Select Quiz --</option>
-												<option>Pmp</option>
-												<option>Java</option>
-												<option>Android</option>
-												<option>Python</option>
+											<select name="quizId" id="quizDropDown" class="selectpicker"
+												data-style="form-control">
+												<option value="0">-- Select Quiz --</option>
+												<c:forEach var="quizInfo" items="${quizInfoList}">
+													<option value="${quizInfo.quizId}">${quizInfo.quizName}</option>
+												</c:forEach>
 											</select>
-											<button type="button"
-												class="btn btn-inverse waves-effect waves-light">Search</button>
+											<button type="submit" name="optionsBtn" value="loadSections"
+												class="btn btn-inverse waves-effect waves-light">Load Sections</button>
 										</div>
 									</div>
 								</div>
 								<hr>
+								
+								
+								
 								<div id="slimtest2">
+								
+									<c:if test="${hasSections}">
+								
 									<div class="row">
 										<div class="col-sm-12">
 											<h4>Take questions from selected sections only:</h4>
 										</div>
 									</div>
+									
 									<div class="row">
-										<div class="col-sm-12">
-											<div class="checkbox checkbox-custom">
-												<input id="checkbox0" type="checkbox" checked> <label
-													for="checkbox0"> Introduction to Computers, the
-													Internet and Java</label> <a href="#"><span
-													class="badge badge-success">5<input type="hidden"
-														value=""></span></a>
-											</div>
-											<div class="checkbox checkbox-custom">
-												<input id="checkbox1" type="checkbox" checked> <label
-													for="checkbox1"> Input/Output and Operators</label> <span
-													class="badge">15</span>
-											</div>
-											<div class="checkbox checkbox-custom">
-												<input id="checkbox2" type="checkbox" checked> <label
-													for="checkbox2"> Introduction to Classes, Objects,
-													Methods and Strings</label> <span class="badge">8</span>
-											</div>
-											<div class="checkbox checkbox-custom">
-												<input id="checkbox3" type="checkbox" checked> <label
-													for="checkbox3"> Control Statements: Part I</label> <span
-													class="badge">15</span>
-											</div>
-											<div class="checkbox checkbox-custom">
-												<input id="checkbox4" type="checkbox" checked> <label
-													for="checkbox4"> Control Statements: Part II </label> <span
-													class="badge">45</span>
-											</div>
-											<div class="checkbox checkbox-custom">
-												<input id="checkbox5" type="checkbox" checked> <label
-													for="checkbox5"> Classes and Objects</label> <span
-													class="badge">45</span>
-											</div>
-											<div class="checkbox checkbox-custom">
-												<input id="checkbox6" type="checkbox" checked> <label
-													for="checkbox6"> Arrays and ArrayLists</label> <span
-													class="badge">45</span>
-											</div>
-											<div class="checkbox checkbox-custom">
-												<input id="checkbox6" type="checkbox" checked> <label
-													for="checkbox6"> Object-Oriented Programming:
-													Inheritance</label> <span class="badge">45</span>
-											</div>
-											<div class="checkbox checkbox-custom">
-												<input id="checkbox6" type="checkbox" checked> <label
-													for="checkbox6"> Object-Oriented Programming:
-													Polymorphism and Interfaces</label> <span class="badge">45</span>
-											</div>
-											<div class="checkbox checkbox-custom">
-												<input id="checkbox6" type="checkbox" checked> <label
-													for="checkbox6"> Exception Handling</label> <span
-													class="badge">45</span>
-											</div>
+										<div id="sectionBox" class="col-sm-12">
+											
+												<c:set var="totalQuestions" value="${0}" />
+												<c:forEach var="quizSection" items="${quizSectionList}" varStatus="status">
+													<div class="checkbox"><input value="${quizSection.numberOfQuestions}" class="sectionCheckBoxes" type="checkbox" checked><label for="">${quizSection.sectionDescription}</label> <a href="#"><span class="badge badge-success">${quizSection.numberOfQuestions}</span></a></div>
+													<input type="hidden" name="quizSections" value="${quizSection.sectionId}" >
+													<input type="hidden" name="quizSectionsSelected" class="quizSectionsSelected" value="1">
+													<c:set var="totalQuestions" value="${totalQuestions + quizSection.numberOfQuestions}" />
+												</c:forEach>
 										</div>
 									</div>
+									
 									<div class="row">
 										<div class="form-group">
 											<div class="col-sm-12">
-												<button type="button"
+												<button id="selectAllBtn" type="button"
 													class="btn waves-effect waves-light m-r-10">Select
 													All</button>
-												<button type="button" class="btn waves-effect waves-light">Deselect
+												<button id="deselectAllBtn" type="button" class="btn waves-effect waves-light">Deselect
 													All</button>
 											</div>
 										</div>
 									</div>
+									</c:if>
 								</div>
 								<hr>
 								<div class="row">
 									<div class="form-group">
 										<div class="col-sm-3">
-											<input type="email" class="form-control" id="inputEmail3"
-												placeholder="" value="320 Questions" readonly>
+											<input type="text" class="form-control" id="totalQuestions"
+												placeholder="" value="Total Questions Selected: ${totalQuestions}" readonly>
 										</div>
 										<div class="col-sm-9 text-right">
-											<button type="button"
-												class="btn btn-success waves-effect waves-light m-r-10">Continue</button>
+											<button type="submit" id="continueBtn" name="optionsBtn" value="continue" 
+												class="btn btn-success waves-effect waves-light m-r-10"  <c:if test="${!hasSections}">disabled</c:if>>Continue</button>
 										</div>
 									</div>
 								</div>
+								
+								
 							</div>
+						</div>
 						</div>
 				</form>
 				<!-- /.Row -->
@@ -356,6 +328,121 @@
 	<!--Style Switcher -->
 	<script
 		src="<c:url value="/plugins/bower_components/styleswitcher/jQuery.style.switcher.js" />"></script>
+	<script type="text/javascript">
+	
+		$(document).ready(function() {
+			
+			$("#quizDropDown").val(${quizId});
+			
+			$("#quizDropDown").change(function() {
+
+				//alert($("#quizDropDown").val());
+				
+				var selectedVal = $("#quizDropDown").val();
+				
+				$("#slimtest2").fadeOut();
+				
+				if(selectedVal > 0){
+					
+				}else{
+					
+				}
+				
+				/*if(selectedVal > 0){
+					
+					var totalQuestions = 0;
+					
+					$.getJSON("sections/" + selectedVal).done(function(json) {
+						$("#sectionBox").empty();
+						for(var i = 0; i < json.length; i++){
+							$("#selectAllBtn").prop('disabled',false);
+							$("#deselectAllBtn").prop('disabled',false);
+							$("#sectionBox").append('<div class="checkbox"><input class="" type="checkbox" checked><label class="sectionCheckBoxes" for=""> ' + json[i].sectionDescription + ' </label> <a href="#"><span class="badge badge-success">' + json[i].numberOfQuestions + '</span></a></div>');
+							totalQuestions += json[i].numberOfQuestions;
+						}
+						
+						$("#totalQuestions").val('Total Questions Selected: ' + totalQuestions);
+						
+					}).fail(function(jqxhr, textStatus, error) {
+						var err = textStatus + ", " + error;
+						alert("Request Failed: " + err);
+					});
+					
+				}else{
+					
+					$("#sectionBox").empty();
+					$("#selectAllBtn").prop('disabled',true);
+					$("#deselectAllBtn").prop('disabled',true);
+					$("#totalQuestions").val('');
+				}*/
+				
+			});
+			
+			$('#selectAllBtn').click(function(){
+				
+				$('.sectionCheckBoxes').prop('checked',true);
+				sumNumberOfQuestions();
+				quizSectionsSelected();
+				
+			});
+			
+			$('#deselectAllBtn').click(function(){
+				
+				$('.sectionCheckBoxes').prop('checked',false);
+				sumNumberOfQuestions();
+				quizSectionsSelected();
+			});
+			
+			$(".sectionCheckBoxes").click(function(){
+				sumNumberOfQuestions();
+				quizSectionsSelected();
+			});
+		//var 
+		
+		function quizSectionsSelected(){
+			
+			$(".sectionCheckBoxes").each(function(i){
+				
+				if($(this).prop("checked") == true){
+					
+					//$('.quizSectionsSelected').eq(i).prop("checked",true);
+					$('.quizSectionsSelected').eq(i).val(1);
+					
+				}else{
+					
+					//$('.quizSectionsSelected').eq(i).prop("checked",false);
+					$('.quizSectionsSelected').eq(i).val(0);
+				}
+				
+			});
+		}
+		
+		function sumNumberOfQuestions(){
+				
+				var total = 0;
+				var x = 0;
+				
+				$(".sectionCheckBoxes").each(function(i){
+					
+					if($(this).prop("checked") == true){
+						//alert($(this).val());
+						x = parseInt($(this).val());
+						total = total + x;
+					}else{
+						//totalQuestions = 0;
+					}
+				});
+				
+				if(total > 0){
+					$('#continueBtn').prop('disabled',false);
+				}else{
+					$('#continueBtn').prop('disabled',true);
+				}
+				$('#totalQuestions').val('Total Questions Selected: ' + total);
+			}
+			
+		});
+	</script>
 </body>
 
 </html>

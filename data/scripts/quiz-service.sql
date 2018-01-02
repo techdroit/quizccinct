@@ -13,9 +13,9 @@ ENGINE=InnoDB
 DEFAULT CHARSET=latin1
 COLLATE=latin1_swedish_ci ;
 
-insert into quiz_ques_types(ques_type_name) values('true or false');
-insert into quiz_ques_types(ques_type_name) values('multi choice radio');
-insert into quiz_ques_types(ques_type_name) values('multi choice check');
+insert into quiz_ques_types(ques_type_name) values('TRUE OR FALSE');
+insert into quiz_ques_types(ques_type_name) values('MULTI CHOICE RADIO');
+insert into quiz_ques_types(ques_type_name) values('MULTI CHOICE CHECK');
 
 ------------------------------------------------------------------------------------------
 
@@ -267,6 +267,7 @@ CREATE TABLE quiz.quiz_sections (
 	quiz_id BIGINT UNSIGNED,
 	sect_name varchar(25) NOT NULL,
 	sect_desc varchar(100),
+	num_ques BIGINT UNSIGNED DEFAULT 0,
 	mk_id BIGINT UNSIGNED,
 	mk_date DATETIME NOT NULL,
 	mk_comment varchar(100),
@@ -606,3 +607,8 @@ INSERT INTO quiz_ques(quiz_id, sect_id, ques_name, status_id, ques_type_id, diff
 					  option_c, option_d, option_e, option_a_valid, option_b_valid, option_c_valid, 
 					  option_d_valid, option_e_valid,mk_id,mk_date)
 VALUES(1,1,'The corresponding name for the Android version, Android 1.5 is _____.',1,2,1,'','Cupcake','','','',2,1,2,2,2,1,'2017-09-30 10:23:00');
+
+
+ALTER TABLE quiz_sections AUTO_INCREMENT = 1;
+
+drop database quiz;

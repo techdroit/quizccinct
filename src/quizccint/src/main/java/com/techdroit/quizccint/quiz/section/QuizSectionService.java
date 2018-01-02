@@ -15,6 +15,11 @@ public class QuizSectionService implements IQuizSectionService {
 	public List<QuizSection> getAllQuizSections() {
 		return quizSectionDAO.getAllQuizSections();
 	}
+	
+	@Override
+	public List<QuizSection> getAllQuizSectionsByQuizId(long quizId) {
+		return quizSectionDAO.getAllQuizSectionsByQuizId(quizId);
+	}
 
 	@Override
 	public QuizSection getQuizSectionById(long sectionId) {

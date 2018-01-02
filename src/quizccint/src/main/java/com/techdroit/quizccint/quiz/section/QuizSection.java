@@ -35,6 +35,17 @@ public class QuizSection {
 	
 	@Column(name="mk_comment")
 	private String makerComment;
+	
+	@Column(name="num_ques")
+	private long numberOfQuestions;
+
+	public long getNumberOfQuestions() {
+		return numberOfQuestions;
+	}
+
+	public void setNumberOfQuestions(long numberOfQuestions) {
+		this.numberOfQuestions = numberOfQuestions;
+	}
 
 	public long getSectionId() {
 		return sectionId;

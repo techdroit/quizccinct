@@ -65,7 +65,7 @@ public class QuestionDAO implements IQuestionDAO {
 		q.setOptionDAnswer(question.isOptionDAnswer());
 		q.setOptionEAnswer(question.isOptionEAnswer());
 		q.setOptionValue(question.getOptionValue());
-		q.setOptionCorrect(question.isOptionCorrect());
+		q.setOptionCorrect(question.getOptionCorrect());
 		q.setDifficultyLevelId(question.getDifficultyLevelId());
 		q.setQuestionMarks(question.getQuestionMarks());
 		q.setStatusId(question.isStatusId());

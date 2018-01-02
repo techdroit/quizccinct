@@ -139,6 +139,7 @@
 												class="form-control select2"
 												data-placeholder="Choose a Category" tabindex="1">
 											</form:select>
+											<span class="help-block"></span>
 										</div>
 
 										<div class="form-group">
@@ -264,9 +265,9 @@
 													option</label>
 												<div class="radio-list">
 													<label class="radio-inline"> <form:radiobutton
-															path="optionCorrect" value="0" />False
+															path="optionCorrect" value="1" />False
 													</label> <label class="radio-inline"> <form:radiobutton
-															path="optionCorrect" value="1" />True
+															path="optionCorrect" value="2" />True
 													</label>
 												</div>
 											</div>

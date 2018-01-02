@@ -76,7 +76,7 @@ public class Question implements Serializable {
 	private byte optionValue;
 	
 	@Column(name = "option_true_or_false")
-	private boolean optionCorrect;
+	private byte optionCorrect;
 	
 	@Column(name = "ques_marks")
 	private byte questionMarks;
@@ -242,11 +242,11 @@ public class Question implements Serializable {
 		this.optionValue = optionValue;
 	}
 
-	public boolean isOptionCorrect() {
+	public byte getOptionCorrect() {
 		return optionCorrect;
 	}
 
-	public void setOptionCorrect(boolean optionCorrect) {
+	public void setOptionCorrect(byte optionCorrect) {
 		this.optionCorrect = optionCorrect;
 	}
 
