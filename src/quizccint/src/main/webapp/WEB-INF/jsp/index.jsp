@@ -40,6 +40,7 @@
 </head>
 
 <body class="fix-header">
+	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<!-- ============================================================== -->
 	<!-- Preloader -->
 	<!-- ============================================================== -->
@@ -157,162 +158,162 @@
 										<c:when test="${question.questionTypeId == 1}">
 											<c:if test="${not empty question.optionA}">
 												<div class="row">
-												<div class="optionContent col-md-12"
-													style="background-color: #e1e1e1;">
-													<div class="form-group">
-														<div class="radio">
-															<form:radiobutton path="optionValue" value="1"
-																class="optionRadio" name="radio" id="radio1" />
-															<label for="radio1" class="col-sm-1" style="width: 0;">
-																A.</label> <span class="col-sm-11">${question.optionA}</span>
+													<div class="optionContent col-md-12"
+														style="background-color: #e1e1e1;">
+														<div class="form-group">
+															<div class="radio">
+																<form:radiobutton path="optionValue" value="1"
+																	class="optionRadio" name="radio" id="radio1" />
+																<label for="radio1" class="col-sm-1" style="width: 0;">
+																	A.</label> <span class="col-sm-11">${question.optionA}</span>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
 											</c:if>
-											
+
 											<c:if test="${not empty question.optionB}">
 												<div class="row">
-												<div class="optionContent col-md-12"
-													style="background-color: #e1e1e1;">
-													<div class="form-group">
-														<div class="radio">
-															<form:radiobutton path="optionValue" value="2"
-																class="optionRadio" name="radio" id="radio2" />
-															<label for="radio2" class="col-sm-1" style="width: 0;">
-																B.</label> <span class="col-sm-11">${question.optionB}</span>
+													<div class="optionContent col-md-12"
+														style="background-color: #e1e1e1;">
+														<div class="form-group">
+															<div class="radio">
+																<form:radiobutton path="optionValue" value="2"
+																	class="optionRadio" name="radio" id="radio2" />
+																<label for="radio2" class="col-sm-1" style="width: 0;">
+																	B.</label> <span class="col-sm-11">${question.optionB}</span>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
 											</c:if>
-											
+
 											<c:if test="${not empty question.optionC}">
 												<div class="row">
-												<div class="optionContent col-md-12"
-													style="background-color: #e1e1e1;">
-													<div class="form-group">
-														<div class="radio">
-															<form:radiobutton path="optionValue" value="3"
-																class="optionRadio" name="radio" id="radio3" />
-															<label for="radio3" class="col-sm-1" style="width: 0;">
-																C.</label> <span class="col-sm-11">${question.optionC}</span>
+													<div class="optionContent col-md-12"
+														style="background-color: #e1e1e1;">
+														<div class="form-group">
+															<div class="radio">
+																<form:radiobutton path="optionValue" value="3"
+																	class="optionRadio" name="radio" id="radio3" />
+																<label for="radio3" class="col-sm-1" style="width: 0;">
+																	C.</label> <span class="col-sm-11">${question.optionC}</span>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
 											</c:if>
-											
+
 											<c:if test="${not empty question.optionD}">
 												<div class="row">
-												<div class="optionContent col-md-12"
-													style="background-color: #e1e1e1;">
-													<div class="form-group">
-														<div class="radio">
-															<form:radiobutton path="optionValue" value="4"
-																class="optionRadio" name="radio" id="radio4" />
-															<label for="radio4" class="col-sm-1" style="width: 0;">
-																D.</label> <span class="col-sm-11">${question.optionD}</span>
+													<div class="optionContent col-md-12"
+														style="background-color: #e1e1e1;">
+														<div class="form-group">
+															<div class="radio">
+																<form:radiobutton path="optionValue" value="4"
+																	class="optionRadio" name="radio" id="radio4" />
+																<label for="radio4" class="col-sm-1" style="width: 0;">
+																	D.</label> <span class="col-sm-11">${question.optionD}</span>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
 											</c:if>
-											
+
 											<c:if test="${not empty question.optionE}">
 												<!-- <div class="row" style="display:none;"> -->
 												<div class="row">
-												<div class="optionContent col-md-12"
-													style="background-color: #e1e1e1;">
-													<div class="form-group">
-														<div class="radio">
-															<form:radiobutton path="optionValue" value="5"
-																class="optionRadio" name="radio" id="radio5" />
-															<label for="radio5" class="col-sm-1" style="width: 0;">
-																E.</label> <span class="col-sm-11">${question.optionE}</span>
+													<div class="optionContent col-md-12"
+														style="background-color: #e1e1e1;">
+														<div class="form-group">
+															<div class="radio">
+																<form:radiobutton path="optionValue" value="5"
+																	class="optionRadio" name="radio" id="radio5" />
+																<label for="radio5" class="col-sm-1" style="width: 0;">
+																	E.</label> <span class="col-sm-11">${question.optionE}</span>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
 											</c:if>
 										</c:when>
 										<c:when test="${question.questionTypeId == 2}">
-											
+
 											<c:if test="${not empty question.optionA}">
 												<div class="row">
-												<div class="optionContent col-md-12">
-													<div class="form-group">
-														<div>
-															<label for="checkbox1" class="col-sm-1"
-																style="padding: 0px; width: 3%;"> <form:checkbox
-																	path="optionAAnswer" id="checkbox1"
-																	class="optionCheckBox" /> A.
-															</label> <span class="col-sm-11">${question.optionA}</span>
+													<div class="optionContent col-md-12">
+														<div class="form-group">
+															<div>
+																<label for="checkbox1" class="col-sm-1"
+																	style="padding: 0px; width: 3%;"> <form:checkbox
+																		path="optionAAnswer" id="checkbox1"
+																		class="optionCheckBox" /> A.
+																</label> <span class="col-sm-11">${question.optionA}</span>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
 											</c:if>
-											
+
 											<c:if test="${not empty question.optionB}">
 												<div class="row">
-												<div class="optionContent col-md-12">
-													<div class="form-group">
-														<div>
-															<label for="checkbox2" class="col-sm-1"
-																style="padding: 0px; width: 3%;"><form:checkbox
-																	path="optionBAnswer" id="checkbox2"
-																	class="optionCheckBox" /> B.</label> <span class="col-sm-11">${question.optionB}</span>
+													<div class="optionContent col-md-12">
+														<div class="form-group">
+															<div>
+																<label for="checkbox2" class="col-sm-1"
+																	style="padding: 0px; width: 3%;"><form:checkbox
+																		path="optionBAnswer" id="checkbox2"
+																		class="optionCheckBox" /> B.</label> <span class="col-sm-11">${question.optionB}</span>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
 											</c:if>
-											
+
 											<c:if test="${not empty question.optionC}">
 												<div class="row">
-												<div class="optionContent col-md-12">
-													<div class="form-group">
-														<div>
-															<label for="checkbox3" class="col-sm-1"
-																style="padding: 0px; width: 3%;"><form:checkbox
-																	path="optionCAnswer" id="checkbox3"
-																	class="optionCheckBox" /> C.</label> <span class="col-sm-11">${question.optionC}</span>
+													<div class="optionContent col-md-12">
+														<div class="form-group">
+															<div>
+																<label for="checkbox3" class="col-sm-1"
+																	style="padding: 0px; width: 3%;"><form:checkbox
+																		path="optionCAnswer" id="checkbox3"
+																		class="optionCheckBox" /> C.</label> <span class="col-sm-11">${question.optionC}</span>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
 											</c:if>
-											
+
 											<c:if test="${not empty question.optionD}">
 												<div class="row">
-												<div class="optionContent col-md-12">
-													<div class="form-group">
-														<div>
-															<label for="checkbox4" class="col-sm-1"
-																style="padding: 0px; width: 3%;"><form:checkbox
-																	path="optionDAnswer" id="checkbox4"
-																	class="optionCheckBox" /> D.</label> <span class="col-sm-11">${question.optionD}</span>
+													<div class="optionContent col-md-12">
+														<div class="form-group">
+															<div>
+																<label for="checkbox4" class="col-sm-1"
+																	style="padding: 0px; width: 3%;"><form:checkbox
+																		path="optionDAnswer" id="checkbox4"
+																		class="optionCheckBox" /> D.</label> <span class="col-sm-11">${question.optionD}</span>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
 											</c:if>
-											
+
 											<c:if test="${not empty question.optionE}">
 												<!-- <div class="row" style="display:none;"> -->
 												<div class="row">
-												<div class="optionContent col-md-12">
-													<div class="form-group">
-														<div>
-															<label for="checkbox5" class="col-sm-1"
-																style="padding: 0px; width: 3%;"><form:checkbox
-																	path="optionEAnswer" id="checkbox5"
-																	class="optionCheckBox" /> E.</label> <span class="col-sm-11">${question.optionE}</span>
+													<div class="optionContent col-md-12">
+														<div class="form-group">
+															<div>
+																<label for="checkbox5" class="col-sm-1"
+																	style="padding: 0px; width: 3%;"><form:checkbox
+																		path="optionEAnswer" id="checkbox5"
+																		class="optionCheckBox" /> E.</label> <span class="col-sm-11">${question.optionE}</span>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
 											</c:if>
 
 										</c:when>
@@ -521,13 +522,46 @@
 											</select>
 										</div>
 										<div class="col-sm-6 text-right">
-											<button type="button"
+											<button type="button" id="startQuizBtn"
 												class="btn btn-success waves-effect waves-light m-r-10">Start
 												Exam</button>
-											<button type="button"
+
+											<!-- 
+												<button type="button"
 												class="btn btn-inverse waves-effect waves-light">End
 												Exam</button>
+												 -->
+
+											<a href="#" id="endQuizBtn"
+												class="btn btn-inverse waves-effect waves-light"
+												data-toggle="modal" data-target="#myModal">End Exam</a>
+
 										</div>
+										<!-- sample modal content -->
+										<div id="myModal" class="modal fade" tabindex="-1"
+											role="dialog" aria-labelledby="myModalLabel"
+											aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"
+															aria-hidden="true">×</button>
+														<h4 class="modal-title" id="myModalLabel">Delete Quiz</h4>
+													</div>
+													<div class="modal-body">Are you sure you want to end
+														the quiz?</div>
+													<div class="modal-footer">
+														<a href="${contextPath}/score"
+															class="btn btn-danger waves-effect">Yes</a>
+														<button type="button" class="btn btn-info waves-effect"
+															data-dismiss="modal">No</button>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div>
+										<!-- /.modal -->
 									</div>
 								</div>
 							</div>
@@ -764,6 +798,18 @@
 						}
 						
 					}
+				});
+				
+				$(".optionRadio").click(function(){
+					//$("#endQuizBtn").attr("data-target",'');
+					$("#endQuizBtn").attr("display",'none');
+					//alert('Me');
+				});
+				
+				$(".optionCheckBox").click(function(){
+					$("#endQuizBtn").attr("display",'none');
+					//$("#endQuizBtn").attr("data-target",'');
+					//$("#endQuizBtn").prop("disabled",true);
 				});
 		});
 	</script>
