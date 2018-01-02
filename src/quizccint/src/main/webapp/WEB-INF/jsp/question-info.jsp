@@ -614,7 +614,7 @@
 			
 			if(${not empty question.questionName}){
 				
-				alert(${question.questionTypeId});
+				//alert(${question.questionTypeId});
 				
 				$('#questionTypeSelect').val(${question.questionTypeId});
 				showQuestionType(${question.questionTypeId});
