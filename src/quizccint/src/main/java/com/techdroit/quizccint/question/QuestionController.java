@@ -21,6 +21,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techdroit.quizccint.quiz.info.IQuizInfoService;
 import com.techdroit.quizccint.quiz.info.QuizInfo;
+import com.techdroit.quizccint.quiz.scores.IUserScoreService;
+import com.techdroit.quizccint.quiz.scores.UserScore;
 import com.techdroit.quizccint.quiz.section.IQuizSectionService;
 import com.techdroit.quizccint.quiz.section.QuizSection;
 
@@ -35,7 +37,11 @@ public class QuestionController {
 
 	@Autowired
 	private IQuestionService questionService;
+	
+	@Autowired
+	private IUserScoreService userScoreService;
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String showQuizForm(Model model, HttpServletRequest request) {
 
@@ -46,11 +52,14 @@ public class QuestionController {
 
 		// Create answer sheet for the questions
 		Answer[] answersArray = new Answer[questionList.size()];
+		int totalMarks = 0;
 		for (int i = 0; i < questionList.size(); i++) {
 			Question q = questionList.get(i);
 			Answer a = new Answer();
 			a.setQuestionId(q.getQuestionId());
 			answersArray[i] = a;
+			
+			totalMarks += q.getQuestionMarks();
 		}
 
 		//session.setAttribute("questionList", questionList);
@@ -77,6 +86,18 @@ public class QuestionController {
 		QuizSection quizSection = quizSectionService.getQuizSectionById(question.getSectionId());
 		model.addAttribute("questionSection",
 				quizSection.getSectionName() + ": " + quizSection.getSectionDescription());
+		
+		UserScore userScore = new UserScore();
+		userScore.setUserId(1);
+		userScore.setQuizId(question.getQuizId());
+		userScore.setTotalQuestions(questionList.size());
+		userScore.setTotalMarks(totalMarks);
+		userScore.setStatusId((byte)1);
+		
+		Timestamp t = new Timestamp(System.currentTimeMillis());
+		userScore.setStartDate(t);
+		
+		userScoreService.addUserScore(userScore);
 
 		return "index";
 	}
@@ -108,6 +129,7 @@ public class QuestionController {
 		return answersArray;
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String showQuizQuestions(@ModelAttribute("answer") Answer answer,
 			@RequestParam("questionNavBtn") String questionNavBtn, @RequestParam("quesId") long quesId,
