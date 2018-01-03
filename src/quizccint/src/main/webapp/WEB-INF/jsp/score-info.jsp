@@ -782,19 +782,44 @@
 															<c:when test="${question.questionTypeId == 1}">
 																<c:choose>
 																	<c:when test="${answer.optionValue == 1}">
-																		<td>${question.optionA}</td>
+																		<c:if test="${question.optionValue == 1}">
+																			<td style="color: #00F;">${question.optionA}</td>
+																		</c:if>
+																		<c:if test="${question.optionValue != 1}">
+																			<td style="color: #F00;">${question.optionA}</td>
+																		</c:if>
 																	</c:when>
 																	<c:when test="${answer.optionValue == 2}">
-																		<td>${question.optionB}</td>
+																		<c:if test="${question.optionValue == 2}">
+																			<td style="color: #00F;">${question.optionB}</td>
+																		</c:if>
+																		<c:if test="${question.optionValue != 2}">
+																			<td style="color: #F00;">${question.optionB}</td>
+																		</c:if>
 																	</c:when>
 																	<c:when test="${answer.optionValue == 3}">
-																		<td>${question.optionC}</td>
+																		<c:if test="${question.optionValue == 3}">
+																			<td style="color: #00F;">${question.optionC}</td>
+																		</c:if>
+																		<c:if test="${question.optionValue != 3}">
+																			<td style="color: #F00;">${question.optionC}</td>
+																		</c:if>
 																	</c:when>
 																	<c:when test="${answer.optionValue == 4}">
-																		<td>${question.optionD}</td>
+																		<c:if test="${question.optionValue == 4}">
+																			<td style="color: #00F;">${question.optionD}</td>
+																		</c:if>
+																		<c:if test="${question.optionValue != 4}">
+																			<td style="color: #F00;">${question.optionD}</td>
+																		</c:if>
 																	</c:when>
 																	<c:when test="${answer.optionValue == 5}">
-																		<td>${question.optionE}</td>
+																		<c:if test="${question.optionValue == 5}">
+																			<td style="color: #00F;">${question.optionE}</td>
+																		</c:if>
+																		<c:if test="${question.optionValue != 5}">
+																			<td style="color: #F00;">${question.optionE}</td>
+																		</c:if>
 																	</c:when>
 																	<c:otherwise>
 																		<td></td>
@@ -802,9 +827,30 @@
 																</c:choose>
 															</c:when>
 															<c:when test="${question.questionTypeId == 2}">
-
+																<td>x</td>
 															</c:when>
 															<c:otherwise>
+																<c:choose>
+																	<c:when test="${answer.optionCorrect == 1}">
+																		<c:if test="${question.optionCorrect == 1}">
+																			<td style="color: #00F;">False</td>
+																		</c:if>
+																		<c:if test="${question.optionCorrect != 1}">
+																			<td style="color: #F00;">False</td>
+																		</c:if>
+																	</c:when>
+																	<c:when test="${answer.optionCorrect == 2}">
+																		<c:if test="${question.optionCorrect == 2}">
+																			<td style="color: #00F;">True</td>
+																		</c:if>
+																		<c:if test="${question.optionCorrect != 2}">
+																			<td style="color: #F00;">True</td>
+																		</c:if>
+																	</c:when>
+																	<c:otherwise>
+																		<td></td>
+																	</c:otherwise>
+																</c:choose>
 
 															</c:otherwise>
 														</c:choose>
