@@ -41,6 +41,7 @@
 </head>
 
 <body class="fix-header">
+	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<!-- ============================================================== -->
 	<!-- Preloader -->
 	<!-- ============================================================== -->
@@ -747,6 +748,15 @@
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
+
+				<!--
+				<div class="row">
+					<div class="col-lg-2 col-sm-4 col-xs-12">
+						<a href="${contextPath}/score" class="btn btn-block btn-outline btn-rounded btn-default">Back To Result</a>
+					</div>
+				</div>
+				  -->
+
 				<!-- /row -->
 				<div class="row">
 					<div class="col-sm-12">
@@ -772,18 +782,18 @@
 									<tbody>
 										<c:forEach var="userScore" items="${userScoreList}"
 											varStatus="status">
-												<tr style="<c:if test="${status.count == 1}">color:#00F;</c:if>">
-													<td>${status.count}</td>
-													<td>${userScore.totalQuestions}</td>
-													<td>${userScore.totalMarks}</td>
-													<td>${userScore.numOfCorrectAnswers}</td>
-													<td>${userScore.numOfIncorrectAnswers}</td>
-													<td>${userScore.marksObtained}</td>
-													<td>${userScore.percentScore}</td>
-													<td>${userScore.startDate}</td>
-													<td>${userScore.endDate}</td>
-												</tr>
-											
+											<tr
+												style="<c:if test="${status.count == 1}">color:#00F;</c:if>">
+												<td>${status.count}</td>
+												<td>${userScore.totalQuestions}</td>
+												<td>${userScore.totalMarks}</td>
+												<td>${userScore.numOfCorrectAnswers}</td>
+												<td>${userScore.numOfIncorrectAnswers}</td>
+												<td>${userScore.marksObtained}</td>
+												<td>${userScore.percentScore}%</td>
+												<td>${userScore.startDate}</td>
+												<td>${userScore.endDate}</td>
+											</tr>
 										</c:forEach>
 									</tbody>
 								</table>

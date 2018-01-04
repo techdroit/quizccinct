@@ -41,6 +41,7 @@
 </head>
 
 <body class="fix-header">
+	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<!-- ============================================================== -->
 	<!-- Preloader -->
 	<!-- ============================================================== -->
@@ -751,11 +752,20 @@
 
 
 				<div class="alert alert-dismissable alert-info">
-					<i class="fa fa-fw fa-info-circle"></i>&nbsp; <strong>Notification</strong> Correct answers are highlighted in blue. Incorrect answers are highlighted in red. 
+					<i class="fa fa-fw fa-info-circle"></i>&nbsp; <strong>Notification</strong>
+					Correct answers are highlighted in blue. Incorrect answers are
+					highlighted in red.
 					<button type="button" class="close" data-dismiss="alert"
 						aria-hidden="true">&times;</button>
 				</div>
 
+				<div class="row">
+					<div class="col-lg-2 col-sm-4 col-xs-12">
+						<a href="${contextPath}/result"
+							class="btn btn-block btn-outline btn-rounded btn-success">Show
+							Result</a>
+					</div>
+				</div>
 				<!-- /row -->
 				<div class="row">
 					<div class="col-sm-12">

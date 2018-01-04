@@ -97,7 +97,8 @@ public class QuestionController {
 		Timestamp t = new Timestamp(System.currentTimeMillis());
 		userScore.setStartDate(t);
 		
-		userScoreService.addUserScore(userScore);
+		//userScoreService.addUserScore(userScore);
+		session.setAttribute("userScore", userScore);
 
 		return "index";
 	}
