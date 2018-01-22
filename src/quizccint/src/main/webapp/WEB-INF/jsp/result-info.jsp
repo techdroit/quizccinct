@@ -719,7 +719,6 @@
 				</ul>
 			</div>
 		</div>
-
 		<!-- ============================================================== -->
 		<!-- End Left Sidebar -->
 		<!-- ============================================================== -->
@@ -730,7 +729,7 @@
 			<div class="container-fluid">
 				<div class="row bg-title">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<h4 class="page-title">QUIZ SCORE</h4>
+						<h4 class="page-title">QUIZ RESULT</h4>
 					</div>
 					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 						<button
@@ -748,166 +747,43 @@
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
-
-
-				<div class="alert alert-dismissable alert-info">
-					<i class="fa fa-fw fa-info-circle"></i>&nbsp; <strong>Notification</strong> Correct answers are highlighted in blue. Incorrect answers are highlighted in red. 
-					<button type="button" class="close" data-dismiss="alert"
-						aria-hidden="true">&times;</button>
-				</div>
-
 				<!-- /row -->
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="white-box">
-							<!-- 
-                        	<h3 class="box-title m-b-0">Data Table</h3>
-                            <p class="text-muted m-b-30">Data table example</p>
-                        	 -->
+							<!-- <h3 class="box-title m-b-0">Data Table</h3>
+							<p class="text-muted m-b-30">Data table example</p> -->
+
 							<div class="table-responsive">
 								<table id="myTable" class="table table-striped">
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>Question</th>
-											<th>Mark</th>
-											<th>Your Answer</th>
+											<th>Total Question</th>
+											<th>Total Marks</th>
+											<th>Correct</th>
+											<th>Incorrect</th>
+											<th>Marks Obtained</th>
+											<th>Percentage Score</th>
+											<th>Start Date</th>
+											<th>End Date</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="question" items="${questionList}"
+										<c:forEach var="userScore" items="${userScoreList}"
 											varStatus="status">
-											<tr>
-												<td>${status.count}</td>
-												<td>${question.questionName}</td>
-												<td>${question.questionMarks}</td>
-
-												<c:forEach var="answer" items="${answerList}">
-													<c:if test="${question.questionId == answer.questionId}">
-
-														<c:choose>
-															<c:when test="${question.questionTypeId == 1}">
-																<c:choose>
-																	<c:when test="${answer.optionValue == 1}">
-																		<c:if test="${question.optionValue == 1}">
-																			<td style="color: #00F;">${question.optionA}</td>
-																		</c:if>
-																		<c:if test="${question.optionValue != 1}">
-																			<td style="color: #F00;">${question.optionA}</td>
-																		</c:if>
-																	</c:when>
-																	<c:when test="${answer.optionValue == 2}">
-																		<c:if test="${question.optionValue == 2}">
-																			<td style="color: #00F;">${question.optionB}</td>
-																		</c:if>
-																		<c:if test="${question.optionValue != 2}">
-																			<td style="color: #F00;">${question.optionB}</td>
-																		</c:if>
-																	</c:when>
-																	<c:when test="${answer.optionValue == 3}">
-																		<c:if test="${question.optionValue == 3}">
-																			<td style="color: #00F;">${question.optionC}</td>
-																		</c:if>
-																		<c:if test="${question.optionValue != 3}">
-																			<td style="color: #F00;">${question.optionC}</td>
-																		</c:if>
-																	</c:when>
-																	<c:when test="${answer.optionValue == 4}">
-																		<c:if test="${question.optionValue == 4}">
-																			<td style="color: #00F;">${question.optionD}</td>
-																		</c:if>
-																		<c:if test="${question.optionValue != 4}">
-																			<td style="color: #F00;">${question.optionD}</td>
-																		</c:if>
-																	</c:when>
-																	<c:when test="${answer.optionValue == 5}">
-																		<c:if test="${question.optionValue == 5}">
-																			<td style="color: #00F;">${question.optionE}</td>
-																		</c:if>
-																		<c:if test="${question.optionValue != 5}">
-																			<td style="color: #F00;">${question.optionE}</td>
-																		</c:if>
-																	</c:when>
-																	<c:otherwise>
-																		<td></td>
-																	</c:otherwise>
-																</c:choose>
-															</c:when>
-															<c:when test="${question.questionTypeId == 2}">
-																<td><c:if test="${answer.optionAAnswer == true}">
-																		<c:choose>
-																			<c:when test="${question.optionAAnswer == true}">
-																				<span style="color: #00F;">${question.optionA}.</span>
-																			</c:when>
-																			<c:otherwise>
-																				<span style="color: #F00;">${question.optionA}.</span>
-																			</c:otherwise>
-																		</c:choose>
-																	</c:if> <c:if test="${answer.optionBAnswer == true}">
-																		<c:choose>
-																			<c:when test="${question.optionBAnswer == true}">
-																				<span style="color: #00F;">${question.optionB}.</span>
-																			</c:when>
-																			<c:otherwise>
-																				<span style="color: #F00;">${question.optionB}.</span>
-																			</c:otherwise>
-																		</c:choose>
-																	</c:if> <c:if test="${answer.optionCAnswer == true}">
-																		<c:choose>
-																			<c:when test="${question.optionCAnswer == true}">
-																				<span style="color: #00F;">${question.optionC}.</span>
-																			</c:when>
-																			<c:otherwise>
-																				<span style="color: #F00;">${question.optionC}.</span>
-																			</c:otherwise>
-																		</c:choose>
-																	</c:if> <c:if test="${answer.optionDAnswer == true}">
-																		<c:choose>
-																			<c:when test="${question.optionDAnswer == true}">
-																				<span style="color: #00F;">${question.optionD}.</span>
-																			</c:when>
-																			<c:otherwise>
-																				<span style="color: #F00;">${question.optionD}.</span>
-																			</c:otherwise>
-																		</c:choose>
-																	</c:if> <c:if test="${answer.optionEAnswer == true}">
-																		<c:choose>
-																			<c:when test="${question.optionEAnswer == true}">
-																				<span style="color: #00F;">${question.optionE}.</span>
-																			</c:when>
-																			<c:otherwise>
-																				<span style="color: #F00;">${question.optionE}.</span>
-																			</c:otherwise>
-																		</c:choose>
-																	</c:if></td>
-															</c:when>
-															<c:otherwise>
-																<c:choose>
-																	<c:when test="${answer.optionCorrect == 1}">
-																		<c:if test="${question.optionCorrect == 1}">
-																			<td style="color: #00F;">False</td>
-																		</c:if>
-																		<c:if test="${question.optionCorrect != 1}">
-																			<td style="color: #F00;">False</td>
-																		</c:if>
-																	</c:when>
-																	<c:when test="${answer.optionCorrect == 2}">
-																		<c:if test="${question.optionCorrect == 2}">
-																			<td style="color: #00F;">True</td>
-																		</c:if>
-																		<c:if test="${question.optionCorrect != 2}">
-																			<td style="color: #F00;">True</td>
-																		</c:if>
-																	</c:when>
-																	<c:otherwise>
-																		<td></td>
-																	</c:otherwise>
-																</c:choose>
-															</c:otherwise>
-														</c:choose>
-													</c:if>
-												</c:forEach>
-											</tr>
+												<tr style="<c:if test="${status.count == 1}">color:#00F;</c:if>">
+													<td>${status.count}</td>
+													<td>${userScore.totalQuestions}</td>
+													<td>${userScore.totalMarks}</td>
+													<td>${userScore.numOfCorrectAnswers}</td>
+													<td>${userScore.numOfIncorrectAnswers}</td>
+													<td>${userScore.marksObtained}</td>
+													<td>${userScore.percentScore}</td>
+													<td>${userScore.startDate}</td>
+													<td>${userScore.endDate}</td>
+												</tr>
+											
 										</c:forEach>
 									</tbody>
 								</table>

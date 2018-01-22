@@ -331,24 +331,27 @@ COLLATE=latin1_swedish_ci;
 ------------------------------------------------------------------------------------------
 
 CREATE TABLE quiz.quiz_user_scores (
+	score_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 	user_id BIGINT UNSIGNED,
 	quiz_id BIGINT UNSIGNED,
-	sect_id BIGINT UNSIGNED,
 	status_id TINYINT UNSIGNED,
-	time_rmn TINYINT UNSIGNED,
-	str_date DATE NOT NULL,
-	end_date DATE,
-	score TINYINT UNSIGNED,
+	total_ques TINYINT UNSIGNED,
+	total_marks TINYINT UNSIGNED,
+	correct TINYINT UNSIGNED,
+	incorrect TINYINT UNSIGNED,
+	marks_obtained TINYINT UNSIGNED,
+	percent_score TINYINT UNSIGNED,
+	str_date TIMESTAMP,
+	end_date TIMESTAMP,
 	index user_ind (user_id),
 	index quiz_ind (quiz_id),
 	foreign key (user_id) 
 	references quiz_users(user_id),
 	foreign key (quiz_id) 
 	references quiz_info(quiz_id),
-	foreign key (sect_id) 
-	references quiz_sections(sect_id),
 	foreign key (status_id) 
-	references quiz_status(status_id)
+	references quiz_status(status_id),
+	primary key(score_id)
 )
 ENGINE=InnoDB
 DEFAULT CHARSET=latin1
