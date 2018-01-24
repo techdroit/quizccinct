@@ -11,20 +11,19 @@
 <meta name="author" content="">
 <link rel="icon" type="image/png" sizes="16x16"
 	href="<c:url value="/plugins/images/favicon.png" />">
-<title>Quiz List</title>
+<title>Ample Admin Template - The Ultimate Multipurpose admin
+	template</title>
 <!-- Bootstrap Core CSS -->
 <link href="<c:url value="/bootstrap/dist/css/bootstrap.min.css" />"
 	rel="stylesheet">
-<link
-	href="<c:url value="/plugins/bower_components/datatables/jquery.dataTables.min.css" />"
-	rel="stylesheet" type="text/css" />
-<link
-	href="<c:url value="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" />"
-	rel="stylesheet" type="text/css" />
+<!-- animation CSS -->
+<link href="css/animate.css" rel="stylesheet">
 <!-- Menu CSS -->
 <link
 	href="<c:url value="/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" />"
 	rel="stylesheet">
+<link rel="stylesheet"
+	href="<c:url value="/plugins/bower_components/dropify/dist/css/dropify.min.css" />">
 <!-- animation CSS -->
 <link href="<c:url value="/css/animate.css" />" rel="stylesheet">
 <!-- Custom CSS -->
@@ -35,13 +34,12 @@
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-    <script src="<c:url value="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" />"></script>
-    <script src="<c:url value="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" />"></script>
+    <script src="<c:url value="/https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" />"></script>
+    <script src="<c:url value="/https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" />"></script>
 <![endif]-->
 </head>
 
 <body class="fix-header">
-	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<!-- ============================================================== -->
 	<!-- Preloader -->
 	<!-- ============================================================== -->
@@ -64,16 +62,16 @@
 					<!-- Logo -->
 					<a class="logo" href="index.html"> <!-- Logo icon image, you can use font-icon also -->
 						<b> <!--This is dark logo icon--> <img
-							src="../plugins/images/admin-logo.png" alt="home"
+							src="<c:url value="/plugins/images/admin-logo.png" />" alt="home"
 							class="dark-logo" /> <!--This is light logo icon--> <img
-							src="../plugins/images/admin-logo-dark.png" alt="home"
-							class="light-logo" />
+							src="<c:url value="/plugins/images/admin-logo-dark.png" />"
+							alt="home" class="light-logo" />
 					</b> <!-- Logo text image you can use text also --> <span
 						class="hidden-xs"> <!--This is dark logo text--> <img
-							src="../plugins/images/admin-text.png" alt="home"
+							src="<c:url value="/plugins/images/admin-text.png" />" alt="home"
 							class="dark-logo" /> <!--This is light logo text--> <img
-							src="../plugins/images/admin-text-dark.png" alt="home"
-							class="light-logo" />
+							src="<c:url value="/plugins/images/admin-text-dark.png" />"
+							alt="home" class="light-logo" />
 					</span>
 					</a>
 				</div>
@@ -297,15 +295,16 @@
 					</li>
 					<li class="dropdown"><a class="dropdown-toggle profile-pic"
 						data-toggle="dropdown" href="#"> <img
-							src="../plugins/images/users/varun.jpg" alt="user-img" width="36"
-							class="img-circle"><b class="hidden-xs">Steave</b><span
-							class="caret"></span>
+							src="<c:url value="/plugins/images/users/varun.jpg" />"
+							alt="user-img" width="36" class="img-circle"><b
+							class="hidden-xs">Steave</b><span class="caret"></span>
 					</a>
 						<ul class="dropdown-menu dropdown-user animated flipInY">
 							<li>
 								<div class="dw-user-box">
 									<div class="u-img">
-										<img src="../plugins/images/users/varun.jpg" alt="user" />
+										<img src="<c:url value="/plugins/images/users/varun.jpg" />"
+											alt="user" />
 									</div>
 									<div class="u-text">
 										<h4>Steave Jobs</h4>
@@ -346,9 +345,9 @@
 				</div>
 				<ul class="nav" id="side-menu">
 					<li class="user-pro"><a href="#" class="waves-effect"><img
-							src="../plugins/images/users/varun.jpg" alt="user-img"
-							class="img-circle"> <span class="hide-menu"> Steve
-								Gection<span class="fa arrow"></span>
+							src="<c:url value="/plugins/images/users/varun.jpg" />"
+							alt="user-img" class="img-circle"> <span class="hide-menu">
+								Steve Gection<span class="fa arrow"></span>
 						</span> </a>
 						<ul class="nav nav-second-level collapse" aria-expanded="false"
 							style="height: 0px;">
@@ -569,7 +568,7 @@
 								</ul></li>
 						</ul></li>
 					<li class="devider"></li>
-					<li><a href="forms.html" class="waves-effect"><i
+					<li><a href="forms.html" class="waves-effect active"><i
 							class="mdi mdi-clipboard-text fa-fw"></i> <span class="hide-menu">Forms<span
 								class="fa arrow"></span></span></a>
 						<ul class="nav nav-second-level">
@@ -610,7 +609,7 @@
 									class="fa-fw">T</i><span class="hide-menu">Tinymce
 										wysihtml5</span></a></li>
 						</ul></li>
-					<li><a href="tables.html" class="waves-effect active"><i
+					<li><a href="tables.html" class="waves-effect"><i
 							class="mdi mdi-table fa-fw"></i> <span class="hide-menu">Tables<span
 								class="fa arrow"></span><span
 								class="label label-rouded label-danger pull-right">9</span></span></a>
@@ -730,7 +729,7 @@
 			<div class="container-fluid">
 				<div class="row bg-title">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<h4 class="page-title">Question Management</h4>
+						<h4 class="page-title">File Upload</h4>
 					</div>
 					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 						<button
@@ -742,13 +741,13 @@
 							Admin Now</a>
 						<ol class="breadcrumb">
 							<li><a href="#">Dashboard</a></li>
-							<li><a href="#">Table</a></li>
-							<li class="active">Data Table</li>
+							<li><a href="#">Forms</a></li>
+							<li class="active">File Upload</li>
 						</ol>
 					</div>
 					<!-- /.col-lg-12 -->
 				</div>
-				
+
 				<c:if test="${not empty message}">
 					<div class="alert alert-success alert-dismissable">
 						<button type="button" class="close" data-dismiss="alert"
@@ -757,89 +756,72 @@
 					</div>
 				</c:if>
 
-				<%--
-				<div class="row m-b-10">
-					<div class="col-lg-2 col-sm-4 col-xs-12">
-						<a href="${contextPath}/questions/add"
-							class="btn btn-block btn-outline btn-info"> Add Question </a>
-					</div>
-				</div>
-				 --%>
+				<!-- .row -->
+				<!--  
+				<form method="POST" action="" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-sm-6 ol-md-6 col-xs-12">
+							<div class="white-box">
+								<h3 class="box-title">File Upload1</h3>
+								<label for="input-file-now">Your so fresh input file:
+									Default version</label> <input type="file" id="input-file-now"
+									name="file" class="dropify" />
 
-				<!-- /row -->
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="white-box">
-							<!-- 
-							<h3 class="box-title m-b-0">Data Table</h3>
-							<p class="text-muted m-b-30">Data table example</p>
-							 -->
-							<div class="table-responsive">
-								<table id="myTable" class="table table-striped">
-									<thead>
-										<tr>
-											<th>Id</th>
-											<th>Question</th>
-											<!--<th>Reference</th>-->
-											<th>Type</th>
-											<th>Option 1</th>
-											<th>Option 2</th>
-											<th>Option 3</th>
-											<th>Option 4</th>
-											<th>Option 5</th>
-											<th>Check 1</th>
-											<th>Check 2</th>
-											<th>Check 3</th>
-											<th>Check 4</th>
-											<th>Check 5</th>
-											<th>Radio No</th>
-											<th>True/False</th>
-											<th>Mark(s)</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach var="q" items="${questionList}" varStatus="status">
-											<tr>
-												<td>${q.questionId}</td>
-												<td>${q.questionName}</td>
-												<%-- <td>${q.questionReference}</td> --%>
-												<td>${q.questionTypeId}</td>
-												<td>${q.optionA}</td>
-												<td>${q.optionB}</td>
-												<td>${q.optionC}</td>
-												<td>${q.optionD}</td>
-												<td>${q.optionE}</td>
-												<td>${q.optionAAnswer}</td>
-												<td>${q.optionBAnswer}</td>
-												<td>${q.optionCAnswer}</td>
-												<td>${q.optionDAnswer}</td>
-												<td>${q.optionEAnswer}</td>
-												<td>${q.optionValue}</td>
-												<td>${q.optionCorrect}</td>
-												<td>${q.questionMarks}</td>
-												
-												<%--
-												<td><a
-													href="${contextPath}/questions/${q.quizId}/${q.sectionId}/add"
-													data-toggle="tooltip" data-original-title="Add Question">
-														<i class="fa fa-plus text-inverse m-r-10"></i>
-												</a><a href="${contextPath}/questions/${q.questionId}/update"
-													data-toggle="tooltip" data-original-title="Edit"> <i
-														class="fa fa-pencil text-inverse m-r-10"></i>
-												</a></td>
-												 --%>
-												
-											</tr>
-										</c:forEach>
-									</tbody>
-								</table>
+									<input type="submit" value="Submit" class="btn btn-default" />
 							</div>
 						</div>
+                    <div class="col-sm-6 ol-md-6 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title">File Upload2</h3>
+                            <label for="input-file-now-custom-1">You can add a default value</label>
+                            <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="../plugins/bower_components/dropify/src/images/test-image-1.jpg" /> </div>
+                    </div>
+                    
 					</div>
-				</div>
+					<div class="row">
+						<div class="col-sm-6 ol-md-6 col-xs-12"></div>
+					</div>
+				</form>
+				-->
 				<!-- /.row -->
-				<!-- ============================================================== -->
-				<!-- Right sidebar -->
+				<!-- 
+                <div class="row">
+                    <div class="col-sm-6 ol-md-6 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title">File Upload3</h3>
+                            <label for="input-file-now-custom-2">You can set the height</label>
+                            <input type="file" id="input-file-now-custom-2" class="dropify" data-height="500" /> </div>
+                    </div>
+                     
+                    <div class="col-sm-6 ol-md-6 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title">File Upload4</h3>
+                            <label for="input-file-now-custom-3">You can combine options</label>
+                            <input type="file" id="input-file-now-custom-3" class="dropify" data-height="500" data-default-file="../plugins/bower_components/dropify/src/images/test-image-2.jpg" /> </div>
+                    </div>
+                    
+                </div>
+                -->
+				<!-- .row -->
+				<!-- 
+                <div class="row">
+                    <div class="col-sm-6 ol-md-6 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title">File Upload5</h3>
+                            <label for="input-file-max-fs">You can add a max file size</label>
+                            <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M" /> </div>
+                    </div>
+                     
+                    <div class="col-sm-6 ol-md-6 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title">File Upload6</h3>
+                            <label for="input-file-disable-remove">You can disable remove button</label>
+                            <input type="file" id="input-file-disable-remove" class="dropify" data-show-remove="false" /> </div>
+                    </div>
+                    
+                </div>
+                -->
+				<!-- /.row -->
 				<!-- ============================================================== -->
 				<!-- .right-sidebar -->
 				<div class="right-sidebar">
@@ -883,37 +865,45 @@
 							<ul class="m-t-20 chatonline">
 								<li><b>Chat option</b></li>
 								<li><a href="javascript:void(0)"><img
-										src="../plugins/images/users/varun.jpg" alt="user-img"
-										class="img-circle"> <span>Varun Dhavan <small
-											class="text-success">online</small></span></a></li>
+										src="<c:url value="/plugins/images/users/varun.jpg" />"
+										alt="user-img" class="img-circle"> <span>Varun
+											Dhavan <small class="text-success">online</small>
+									</span></a></li>
 								<li><a href="javascript:void(0)"><img
-										src="../plugins/images/users/genu.jpg" alt="user-img"
-										class="img-circle"> <span>Genelia Deshmukh <small
-											class="text-warning">Away</small></span></a></li>
+										src="<c:url value="/plugins/images/users/genu.jpg" />"
+										alt="user-img" class="img-circle"> <span>Genelia
+											Deshmukh <small class="text-warning">Away</small>
+									</span></a></li>
 								<li><a href="javascript:void(0)"><img
-										src="../plugins/images/users/ritesh.jpg" alt="user-img"
-										class="img-circle"> <span>Ritesh Deshmukh <small
-											class="text-danger">Busy</small></span></a></li>
+										src="<c:url value="/plugins/images/users/ritesh.jpg" />"
+										alt="user-img" class="img-circle"> <span>Ritesh
+											Deshmukh <small class="text-danger">Busy</small>
+									</span></a></li>
 								<li><a href="javascript:void(0)"><img
-										src="../plugins/images/users/arijit.jpg" alt="user-img"
-										class="img-circle"> <span>Arijit Sinh <small
-											class="text-muted">Offline</small></span></a></li>
+										src="<c:url value="/plugins/images/users/arijit.jpg" />"
+										alt="user-img" class="img-circle"> <span>Arijit
+											Sinh <small class="text-muted">Offline</small>
+									</span></a></li>
 								<li><a href="javascript:void(0)"><img
-										src="../plugins/images/users/govinda.jpg" alt="user-img"
-										class="img-circle"> <span>Govinda Star <small
-											class="text-success">online</small></span></a></li>
+										src="<c:url value="/plugins/images/users/govinda.jpg" />"
+										alt="user-img" class="img-circle"> <span>Govinda
+											Star <small class="text-success">online</small>
+									</span></a></li>
 								<li><a href="javascript:void(0)"><img
-										src="../plugins/images/users/hritik.jpg" alt="user-img"
-										class="img-circle"> <span>John Abraham<small
-											class="text-success">online</small></span></a></li>
+										src="<c:url value="/plugins/images/users/hritik.jpg" />"
+										alt="user-img" class="img-circle"> <span>John
+											Abraham<small class="text-success">online</small>
+									</span></a></li>
 								<li><a href="javascript:void(0)"><img
-										src="../plugins/images/users/john.jpg" alt="user-img"
-										class="img-circle"> <span>Hritik Roshan<small
-											class="text-success">online</small></span></a></li>
+										src="<c:url value="/plugins/images/users/john.jpg" />"
+										alt="user-img" class="img-circle"> <span>Hritik
+											Roshan<small class="text-success">online</small>
+									</span></a></li>
 								<li><a href="javascript:void(0)"><img
-										src="../plugins/images/users/pawandeep.jpg" alt="user-img"
-										class="img-circle"> <span>Pwandeep rajan <small
-											class="text-success">online</small></span></a></li>
+										src="<c:url value="/plugins/images/users/pawandeep.jpg " />"
+										alt="user-img" class="img-circle"> <span>Pwandeep
+											rajan <small class="text-success">online</small>
+									</span></a></li>
 							</ul>
 						</div>
 					</div>
@@ -943,114 +933,48 @@
 	<script src="<c:url value="/js/waves.js" />"></script>
 	<!-- Custom Theme JavaScript -->
 	<script src="<c:url value="/js/custom.min.js" />"></script>
+	<script src="<c:url value="/js/jasny-bootstrap.js" />"></script>
+	<!-- jQuery file upload -->
 	<script
-		src="<c:url value="/plugins/bower_components/datatables/jquery.dataTables.min.js" />"></script>
-	<!-- start - This is for export functionality only -->
-	<script
-		src="<c:url value="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js" />"></script>
-	<script
-		src="<c:url value="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js" />"></script>
-	<script
-		src="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" />"></script>
-	<script
-		src="<c:url value="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js" />"></script>
-	<script
-		src="<c:url value="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js" />"></script>
-	<script
-		src="<c:url value="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js" />"></script>
-	<script
-		src="<c:url value="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js" />"></script>
-	<!-- end - This is for export functionality only -->
+		src="<c:url value="/plugins/bower_components/dropify/dist/js/dropify.min.js" />"></script>
 	<script>
-		$(document)
-				.ready(
-						function() {
-							$('#myTable').DataTable();
-							$(document)
-									.ready(
-											function() {
-												var table = $('#example')
-														.DataTable(
-																{
-																	"columnDefs" : [ {
-																		"visible" : false,
-																		"targets" : 2
-																	} ],
-																	"order" : [ [
-																			2,
-																			'asc' ] ],
-																	"displayLength" : 25,
-																	"drawCallback" : function(
-																			settings) {
-																		var api = this
-																				.api();
-																		var rows = api
-																				.rows(
-																						{
-																							page : 'current'
-																						})
-																				.nodes();
-																		var last = null;
-																		api
-																				.column(
-																						2,
-																						{
-																							page : 'current'
-																						})
-																				.data()
-																				.each(
-																						function(
-																								group,
-																								i) {
-																							if (last !== group) {
-																								$(
-																										rows)
-																										.eq(
-																												i)
-																										.before(
-																												'<tr class="group"><td colspan="5">'
-																														+ group
-																														+ '</td></tr>');
-																								last = group;
-																							}
-																						});
-																	}
-																});
-												// Order by the grouping
-												$('#example tbody')
-														.on(
-																'click',
-																'tr.group',
-																function() {
-																	var currentOrder = table
-																			.order()[0];
-																	if (currentOrder[0] === 2
-																			&& currentOrder[1] === 'asc') {
-																		table
-																				.order(
-																						[
-																								2,
-																								'desc' ])
-																				.draw();
-																	} else {
-																		table
-																				.order(
-																						[
-																								2,
-																								'asc' ])
-																				.draw();
-																	}
-																});
-											});
-						});
-		$('#example23').DataTable({
-			dom : 'Bfrtip',
-			buttons : [ 'copy', 'csv', 'excel', 'pdf', 'print' ]
-		});
-	</script>
+    $(document).ready(function() {
+        // Basic
+        $('.dropify').dropify();
+        // Translated
+        $('.dropify-fr').dropify({
+            messages: {
+                default: 'Glissez-déposez un fichier ici ou cliquez',
+                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                remove: 'Supprimer',
+                error: 'Désolé, le fichier trop volumineux'
+            }
+        });
+        // Used events
+        var drEvent = $('#input-file-events').dropify();
+        drEvent.on('dropify.beforeClear', function(event, element) {
+            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+        });
+        drEvent.on('dropify.afterClear', function(event, element) {
+            alert('File deleted');
+        });
+        drEvent.on('dropify.errors', function(event, element) {
+            console.log('Has Errors');
+        });
+        var drDestroy = $('#input-file-to-destroy').dropify();
+        drDestroy = drDestroy.data('dropify')
+        $('#toggleDropify').on('click', function(e) {
+            e.preventDefault();
+            if (drDestroy.isDropified()) {
+                drDestroy.destroy();
+            } else {
+                drDestroy.init();
+            }
+        })
+    });
+    </script>
 	<!--Style Switcher -->
 	<script
-		src="<c:url value="/plugins/bower_components/styleswitcher/jQuery.style.switcher.js" />"></script>
+		src="<c:url value="/plugins/bower_components/styleswitcher/jQuery.style.switcher.js" /> "></script>
 </body>
-
 </html>

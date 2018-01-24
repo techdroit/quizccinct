@@ -36,10 +36,11 @@ public class ApachePOIExcelRead {
 
 				Row currentRow = iterator.next();
 				int rowNum = currentRow.getRowNum();
-				// System.out.println(rowNum);
+				//System.out.println(rowNum);
 				Iterator<Cell> cellIterator = currentRow.iterator();
 
 				Question q = new Question();
+				//q.setQuestionId(rowNum);
 				
 				// Skip the header row
 				if (rowNum > 0) {
@@ -48,18 +49,18 @@ public class ApachePOIExcelRead {
 
 						Cell currentCell = cellIterator.next();
 						int columnIndex = currentCell.getColumnIndex();
-						System.out.print("("+columnIndex+")");
+						//System.out.print("("+columnIndex+")");
 						// getCellTypeEnum shown as deprecated for version 3.15
 						// getCellTypeEnum ill be renamed to getCellType starting from version 4.0
-						if (currentCell.getCellTypeEnum() == CellType.STRING) {
-							System.out.print(currentCell.getStringCellValue() + "--");
-						} else if (currentCell.getCellTypeEnum() == CellType.NUMERIC) {
-							System.out.print((int) currentCell.getNumericCellValue() + "--");
-						}
+						//if (currentCell.getCellTypeEnum() == CellType.STRING) {
+							//System.out.print(currentCell.getStringCellValue() + "--");
+						//} else if (currentCell.getCellTypeEnum() == CellType.NUMERIC) {
+							//System.out.print((int) currentCell.getNumericCellValue() + "--");
+						//}
 						
 						switch (columnIndex) {
 						case 0:
-							
+							q.setQuestionId((long) currentCell.getNumericCellValue());
 							break;
 						case 1:
 							q.setQuizId((int) currentCell.getNumericCellValue());
@@ -135,9 +136,10 @@ public class ApachePOIExcelRead {
 						}
 
 					}
-					System.out.println();
+					//System.out.println();
+					questionList.add(q);
 				}
-				questionList.add(q);
+				rowNum++;
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
