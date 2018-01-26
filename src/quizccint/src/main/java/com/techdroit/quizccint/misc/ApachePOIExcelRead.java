@@ -19,7 +19,8 @@ public class ApachePOIExcelRead {
 
 	// private static final String FILE_NAME = "/tmp/MyFirstExcel.xlsx";
 	// private static final String FILE_NAME = "F://temp//POIDemo.xlsx";
-	private static final String FILE_NAME = "F://temp//Quizccint.xlsx";
+	//private static final String FILE_NAME = "F://temp//Quizccint.xlsx";
+	private static String FILE_NAME = "E://files//quiz//Quizccint.xlsx";
 
 	public static List<Question> readQuestionFromExcel() {
 
@@ -60,7 +61,7 @@ public class ApachePOIExcelRead {
 						
 						switch (columnIndex) {
 						case 0:
-							q.setQuestionId((long) currentCell.getNumericCellValue());
+							//q.setQuestionId((long) currentCell.getNumericCellValue());
 							break;
 						case 1:
 							q.setQuizId((int) currentCell.getNumericCellValue());

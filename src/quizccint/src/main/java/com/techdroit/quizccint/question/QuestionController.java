@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.techdroit.quizccint.misc.QuestionMisc;
 import com.techdroit.quizccint.quiz.info.IQuizInfoService;
 import com.techdroit.quizccint.quiz.info.QuizInfo;
 import com.techdroit.quizccint.quiz.scores.IUserScoreService;
@@ -224,7 +225,8 @@ public class QuestionController {
 		question.setMakerDate(t);
 		if (questionService.addQuestion(question)) {
 
-			updateNumberOfQuestions(question);
+			//updateNumberOfQuestions(question);
+			QuestionMisc.updateNumberOfQuestions(question);
 			redirectAttributes.addFlashAttribute("msg", "Question added successfully");
 
 		} else {

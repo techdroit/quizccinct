@@ -828,7 +828,6 @@
 														class="fa fa-pencil text-inverse m-r-10"></i>
 												</a></td>
 												 --%>
-												
 											</tr>
 										</c:forEach>
 									</tbody>
