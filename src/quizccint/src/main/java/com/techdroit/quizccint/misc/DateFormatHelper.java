@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class MiscTask {
+public class DateFormatHelper {
 
 	public static java.sql.Date formatDate(Timestamp t) {
 
@@ -39,10 +39,10 @@ public class MiscTask {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(MiscTask.formatDate("12/10/2013"));
+		System.out.println(DateFormatHelper.formatDate("12/10/2013"));
 		Timestamp t = new Timestamp(System.currentTimeMillis());
 		//SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		//System.out.println("My date formatted is: " + sdf.format(t));
-		System.out.println("My date formatted is: " + MiscTask.formatDate(t));
+		System.out.println("My date formatted is: " + DateFormatHelper.formatDate(t));
 	}
 }

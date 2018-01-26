@@ -1,0 +1,537 @@
+The first-generation Android phones were released in October 2008.
+
+IDC - International Data Corporation
+
+mobile platforms and carriers
+
+C-based language such as C++, C#, Swift or Objective-C
+
+Material Design. With Android 5, Google introduced its new Android look-and-feel, based on their material design specification.
+
+Many new Android features are now introduced via support libraries. These enable you to use new features in apps targeting current and past Android platforms.
+
+By creating apps with the AppCompat library from the start, you avoid having to reimplement your code if you decide to support older Android versions to target a wider audience.
+
+Android Design Support Library xxiv
+
+Before Android 6.0, a user was required at installation time to grant in advance all permissions that an app would ever need, which often discouraged users from installing apps. With the new model, the app is installed without asking for any permissions. Instead, the user is asked to grant a permission only the first time the corresponding feature is used. xxiv
+
+class PrintHelper (Chapter 5) from Android’s printing framework for printing from an app. xxiv
+
+PrintHelper is part of the Android Support Library. xxiv
+
+Immersive Mode xxiv
+
+Cloud Test Lab—an online site for testing
+your apps across a wide range of devices, device orientations, locales, spoken languages and
+network conditions. xxv
+
+Android Wear runs on smart watches. Android TV runs
+directly on some smart TVs and media players that you can connect to your TV (typically
+via HDMI cables). xxv
+
+The apps use a range of Android multimedia capabilities, including graphics,
+images, frame-by-frame animation and audio. Preface - xxv
+
+The Android SDK’s Android emulator allows you to test apps on your computer rather than on an Android device. Before you begin - xxxiii
+
+graphics prcessing unit (GPU) xxxiv
+
+
+
+HAXM (hardware accelerated execution manager) xxxiv
+
+Genymotion  xxxiv
+
+Google Play and App Business Issues
+
+10.1 Introduction
+key means for monetizing apps, including in-app advertising, in-app billing and selling virtual goods. - 385
+
+10.2 Preparing Your Apps for Publication
+Google provides various documents to help you get ready to release your app. The Preparing for Release document summarizes what you need to do, including
+getting a cryptographic key for digitally signing your app
+creating an application icon
+including an End User License Agreement with your app (optional)
+versioning your app (e.g., 1.0, 1.1, 2.0, 2.3, 3.0)
+compiling your app for release and
+testing the release version of your app on Android devices - 385
+
+Before publishing your app, you should also read the Core App Quality document which provides quality guidelines for all apps, the Tablet App Quality document which provides guidelines specifically for tablet apps, the Launch Checklist for publishing
+apps on the Google Play store and the Localization Checklist for apps that will be sold in various worldwide markets - 386
+
+10.2.2 End User License Agreement
+You have the option to include an End User License Agreement (EULA) with your app.
+An EULA is an agreement through which you license your software to the user. It typically
+stipulates terms of use, limitations on redistribution and reverse engineering, product liability,
+compliance with applicable laws and more. You might want to consult an attorney
+when drafting an EULA for your app. - 386
+
+
+10.2.3 Icons and Labels
+Google Play also displays a high-resolution app icon. This icon should be:
+• 512-by-512 pixels
+• 32-bit PNG
+• 1 MB maximum 387
+
+10.2.5 Licensing to Control Access to Paid Apps
+The Google Play licensing service allows you to create licensing policies to control access
+to your paid apps. For example, you might use a licensing policy to limit how many simultaneous
+device installs are allowed. 388
+
+10.2.6 Obfuscating Your Code
+You should “obfuscate” any apps you upload to Google Play to discourage reverse engineering
+of your code and further protect your apps. The free ProGuard tool—which runs
+when you build your app in release mode—shrinks the size of your .apk file (the Android
+app package file that contains your app for installation) and optimizes and obfuscates the
+code “by removing unused code and renaming classes, fields, and methods with semantically
+obscure names.”2 - 388
+
+10.2.7 Getting a Private Key for Digitally Signing Your App
+Before uploading your app to a device, Google Play or other app marketplaces, you must
+digitally sign the .apk file using a digital certificate that identifies you as the app’s author.
+A digital certificate includes your name or company name, contact information, and more.
+It can be self-signed using a private key (i.e., a secure password used to encrypt the certificate);
+you do not need to purchase a certificate from a third-party certificate authority
+(though it’s an option). Android Studio automatically digitally signs your app when you
+execute it in an emulator or on a device for debugging purposes. That digital certificate is
+not valid for use with Google Play. 388
+
+10.2.8 Featured Image and Screenshots
+The featured image is used by Google Play to promote an app on phones, tablets and via
+the Google Play website. 388
+
+Screenshots and Using the Android Device Manager’s Screen Capture Tool
+You may upload a maximum of eight screenshots for each device on which your app
+runs—smartphone, small tablet, large tablet, Android TV and Android Wear. These 
+screenshots provide a preview of your app, since users can’t test it before downloading it—
+although they can return an app for a refund within two hours after purchasing it. Choose
+attractive screenshots that show the app’s functionality. 389
+
+Screenshot specifications.
+Specification Description
+Size Minimum width or height of 320 pixels and maximum of 3,840
+pixels—the maximum dimension may not be more than twice the
+minimum.
+Format 24-bit PNG or JPEG format with no alpha (transparency) effects. 389
+
+You can use the Android Device Monitor to capture device screenshots—this tool is
+installed with Android Studio and also helps you debug your apps that are running on
+emulators and devices. 389
+
+10.2.9 Promotional App Video
+In additon, Android Studio
+provides a Screen Record tool in the Android Monitor window. 390
+
+10.3 Pricing Your App: Free or Fee
+Ways to monetize an app
+• Sell the app in Google Play.
+• Sell the app in other Android app marketplaces.
+Sell paid upgrades.
+• Sell virtual goods (Section 10.5).
+• Sell an app to a company that brands it as their own.
+• Use mobile advertising services for in-app ads (Section 10.4).
+• Sell in-app advertising space directly to your customers.
+• Use it to drive sales of a more feature-rich version of the app. 391
+
+10.3.1 Paid Apps
+Financial transactions for paid apps in Google Play are handled by Google Wallet 391
+
+though customers of some mobile carriers (such as AT&T, Sprint and T-Mobile) can opt
+to use carrier billing to charge paid apps to their wireless bill. Your earnings are paid to
+your Google Payments merchant account monthly.4 You’re responsible for paying taxes
+on the revenue you earn through Google Play.
+
+Mobile payment providers for in-app purchase.
+PayPal Mobile Payments Library
+Amazon In-App Purchasing
+Samsung In-App Purchase
+Boku
+Google Play’s in-app billing 394
+
+10.6 Registering at Google Play
+Some violations of the Google Play Content Policy for Developers
+• Infringing on others’ intellectual property
+rights (e.g., trademarks, patents and copyrights).
+• Illegal activities.
+• Invading personal privacy.
+• Interfering with the services of other parties.
+• Harming the user’s device or personal data.
+• Gambling.
+• Creating a “spammy” user experience (e.g.,
+misleading the user about the app’s purpose).
+• Adversely impacting a user’s service charges or
+a wireless carrier’s network.
+• Impersonation or deception.
+• Promoting hate or violence.
+• Providing pornographic or obscene content, or
+anything unsuitable for children under age 18.
+• Ads in system-level notifications and widgets.
+
+10.7 Setting Up a Google Payments Merchant Account
+To sell your apps on Google Play, you’ll need a Google Payments merchant account,
+available to Google Play developers in over 150 countries. 395
+
+10.10 Managing Your Apps in Google PlayThe Google Play Developer Console allows you to manage your account and your apps, check
+users’ star ratings for your apps (1 to 5 stars), respond to users’ comments, track the overall
+number of installs of each app and the number of active installs (installs minus uninstalls).
+You can view installation trends and the distribution of app downloads across Android versions,
+devices, and more. 398
+
+Other Android app marketplaces.
+Marketplace URL
+Amazon Appstore https://developer.amazon.com/public/solutions/
+platforms/android
+Opera Mobile Store http://android.oms.apps.opera.com/en_us/
+Moborobo http://www.moborobo.com
+Appitalism® http://www.appitalism.com/index.html
+GetJar http://www.getjar.com
+SlideMe http://www.slideme.org
+AndroidPIT http://www.androidpit.com 398
+
+Popular mobile app platforms.
+Android http://developer.android.com
+iOS (Apple) http://developer.apple.com/ios
+Windows https://dev.windows.com/en-us/windows-apps 399
+
+Several tools for developing cross-platform mobile apps—there are many more.
+Appcelerator Titanium http://www.appcelerator.com/product/
+PhoneGap http://phonegap.com/
+Sencha https://www.sencha.com/
+Visual Studio https://www.visualstudio.com/en-us/features/mobile-appdevelopment-
+vs.aspx
+Xamarin https://xamarin.com/ 399
+
+
+Name URL Description
+Facebook http://www.facebook.com Social networking
+Instagram https://instagram.com/ Photo and video sharing
+Twitter http://www.twitter.com Microblogging, social networking
+Google+ http://plus.google.com Social networking
+Vine http://vine.co Social video sharing
+Tumblr http://www.tumblr.com Blogging
+Groupon http://www.groupon.com Daily deals
+Foursquare http://www.foursquare.com Check-in
+Snapchat http://www.snapchat.com Video messaging
+Pinterest http://www.pinterest.com Online pinboard
+YouTube http://www.youtube.com Video sharing
+LinkedIn http://www.linkedin.com Social networking for business
+Flickr http://www.flickr.com Photo sharing
+400
+
+1.2 Android—The World's Leading Mobile Operating System
+
+This allows you to view Android's source code and see how its features are implemented.
+
+You can contribute to Android by participating in the Open Source Project discussion groups
+
+Numerous open-source Android apps from Google and others are available on the Internet
+
+
+http://en.wikipedia.org/wiki/List_of_open_source_Android_applications
+Extensive list of open-source apps, organized by category
+(e.g., games, communication, emulators, multimedia,
+security).
+http://developer.android.com/
+tools/samples/index.html
+Instructions for accessing Google’s sample apps for the
+Android platform; includes approximately 100 apps
+and games demonstrating various Android capabilities.
+http://github.com GitHub allows you to share your apps and source code
+and contribute to others’ open-source projects.
+http://f-droid.org Hundreds of free and open-source Android apps.
+http://www.openintents.org Open-source libraries that can be used to enhance app
+capabilities.
+http://www.stackoverflow.com Stack Overflow is a question-and-answer website for
+programmers. Users can vote on each answer, and the
+best responses rise to the top.
+
+
+Get Android Source Code http://source.android.com/source/downloading.html
+Licenses http://source.android.com/source/licenses.html
+FAQs http://source.android.com/source/faqs.html
+
+
+The multitouch screens allow you to control the device with gestures involving one touch or multiple simultaneous touches
+
+Touch the screen and hold your finger in position.
+
+Touch the screen, then move your finger in the swipe direction and release.
+
+Touch and drag your finger across the screen.
+
+Pinch two fingers together, or spread them apart.
+
+With web services, you can create mashups, which enable you to rapidly develop apps by quickly combining complementary web services, often from different organizations and possibly other forms of information feeds.
+
+The Android operating system was developed by Android, Inc., which was acquired by Google in 2005.
+
+In 2007, the Open Handset Alliance was formed to develop, maintain and evolve Android, driving innovation in mobile technology and improving the user experience while reducing costs.
+
+Android 2.2 (also called Froyo, released in May 2010) introduced external storage, allowing you to store apps on an external memory device rather than just in the Android device's internal memory. 
+
+It also introduced the Android Cloud to Device Messaging (C2DM) service.
+
+Android C2DM allows app developers to send data from their servers to their apps installed on Android devices, even when the apps are not currently running. The server notifies the apps to contact it directly to receive updated app or user data.
+
+C2DM is now deprecated in favor of Google Cloud Messaging, which was introduced in 2012.
+
+One of the most significant new features in Android 2.3 was support for 
+near-field communication (NFC)—a short-range wireless connectivity standard that enables communication between two devices within a few centimeters.
+
+NFC can be used for payments (for example, touching your NFCenabled Android device to a payment device on a soda machine), 
+exchanging data such as contacts and pictures, 
+pairing devices and accessories and more.
+
+
+• fragments, which describe portions of an app's user interface and can be combined into one screen or used across multiple screens
+• a persistent Action Bar at the top of the screen providing users with options for interacting with apps
+• the ability to add large-screen layouts to existing apps designed for small screens to optimize your app for use on different screen sizes
+• a visually attractive and more functional user interface, known as "Holo" for its holographic look and feel
+• a new animation framework
+• improved graphics and multimedia capabilities
+• ability to use multicore processor architectures for enhanced performance
+• increased Bluetooth support (e.g., enabling an app to determine if there are any connected devices such as headphones or a keyboard)
+• and an animation framework for animating user-interface or graphics objects.
+
+Android 4.0 (Ice Cream Sandwich), released in 2011, merged Android 2.3 (Gingerbread) and Android 3.0 (Honeycomb) into one operating system for use on all Android devices.
+
+Face detection 
+Using the camera, compatible devices can determine the positioning of the user's eyes, nose and mouth. The camera also can track the user's eye movement, allowing you to create apps that change perspective, based on where the user is looking. This Android Ice Cream Sandwich developer feature is called __________
+
+Virtual camera operator 
+When filming video of multiple people, the camera will automatically focus on the person who is speaking. This Android Ice Cream Sandwich developer feature is called __________
+
+Android Beam Using NFC, 
+Android Beam allows you to touch two Android devices to share content (e.g., contacts, pictures, videos). This Android Ice Cream Sandwich developer feature is called __________
+
+Wi-Fi Direct 
+Wi-Fi P2P (peer-to-peer) APIs allow you to connect multiple Android devices using Wi-Fi. The devices can communicate wirelessly at a greater distance than when using Bluetooth. This Android Ice Cream Sandwich developer feature is called __________
+
+Social API 
+Access and share contact information across social networks and apps (with the user's permission). This Android Ice Cream Sandwich developer feature is called __________
+
+Calendar API 
+Add and share events across multiple apps, manage alerts and attendees and more. This Android Ice Cream Sandwich developer feature is called __________
+
+Accessibility APIs 
+Use the new Accessibility Text-to-Speech APIs to enhance the user experience of your apps for people with disabilities such as vision impairments and more. The explore-by-touch mode allows users with vision impairments to touch anywhere on the screen and hear a voice description of the touched content. This Android Ice Cream Sandwich developer feature is called __________
+
+Android@Home framework
+Use the Android@Home framework to create apps that control appliances in users' homes, such as, thermostats, irrigation systems, networked light bulbs and more. This Android Ice Cream Sandwich developer feature is called __________
+
+Bluetooth health devices 
+Create apps that communicate with Bluetooth health devices such as scales, heart-rate monitors and more. This Android Ice Cream Sandwich developer feature is called __________
+
+Bluetooth LE was introduced in Android 4.3
+
+Google Cloud Messaging—a cross-platform solution that enables developers to deliver messages to devices
+Google Play Services—a set of APIs for incorporating Google functionality into your apps.
+
+
+
+
+Android Beam 
+Enhanced to enable communication via Bluetooth in addition to NFC. This Android Jelly Bean feature is termed __________
+
+Lock screen widgets 
+Create widgets that appear on the user's screen when the device is locked, or modify your existing home-screen widgets so that they're also visible when the device is locked. This Android Jelly Bean feature is termed __________
+
+Photo Sphere 
+APIs for working with the new panoramic photo features that enable users to take 360-degree photos, similar to those used for Google Maps Street View. This Android Jelly Bean feature is termed __________
+
+Daydreams 
+Daydreams are interactive screensavers that are activated when a device is docked or charging. Daydreams can play audio and video and respond to user interactions. This Android Jelly Bean feature is termed __________
+
+Language support 
+New features help your apps reach international users, such as bidirectional text (left-to-right or right-to-left), international keyboards, additional keyboard layouts and more. This Android Jelly Bean feature is termed __________
+
+Developer options 
+Several new tracking and debugging features help you improve your apps, such as bug reports that include a screenfshot and device state information. This Android Jelly Bean feature is termed __________
+
+
+
+
+Immersive mode 
+The status bar at the top of the screen and the menu buttons at the bottom can be hidden, allowing your apps to fill more of the screen. Users can access the status bar by swiping down from the top of the screen, and the system bar (with the back button, home button and recent apps button) by swiping up from the bottom. Which Android KitKat feature does this correspond to?
+
+Printing framework 
+Build printing functionality into your apps, including locating available printers over Wi-Fi or the cloud, selecting the paper size and specifying which pages to print. Which Android KitKat feature does this correspond to?
+
+Storage access framework
+Create document storage providers that allow users to browse, create and edit files (e.g., documents and images) across multiple apps. Which Android KitKat feature does this correspond to?
+
+SMS provider 
+Create SMS (Short Message Service) or MMS (Multimedia Messaging Service) apps using the new SMS provider and APIs. Users can now select their default messaging app. Which Android KitKat feature does this correspond to?
+
+Transitions framework 
+The new framework makes it easier to create transition animations. Which Android KitKat feature does this correspond to?
+
+Screen recording 
+Record video of your app to create tutorials and marketing materials. Which Android KitKat feature does this correspond to?
+
+Enhanced accessibility 
+The captioning manager API allows apps to check the user's captioning preferences (e.g., language, text styles and more). Which Android KitKat feature does this correspond to?
+
+Chromium WebView 
+Supports the latest standards for displaying web content including HTML5, CSS3 and a faster version of JavaScript. Which Android KitKat feature does this correspond to?
+
+Step detector and step counter
+Create apps that detect whether the user is running, walking or climbing stairs and count the number of steps. Which Android KitKat feature does this correspond to?
+
+Host Card Emulator(HCE)
+HCE enables any app to perform secure NFC transactions (e.g., mobile payments) without the need for a secure element on the SIM card controlled by the wireless carrier. Which Android KitKat feature does this correspond to?
+
+
+
+
+Material design 
+Google's new look-and-feel for Android and web applications was the key new feature in Lollipop. This feature helps you create apps with nice transition effects, shadows that add depth to the user interface and emphasize actionable components, customization capabilities and more. Which Android Lollipop feature does this correspond to?
+
+ART runtime 
+Google replaced the original Android runtime with the new 64-bit compatible __________, which uses a combination of interpretation, aheadof- time (AOT) compilation and just-in-time (JIT) compilation to improve performance.
+
+Concurrent documents and activities in the recent apps screen
+Apps can now specify that multiple activities and documents should appear on the recent apps screen. For example, if the user has multiple tabs open in a web browser or multiple documents open in a text-editing app, when the user touches the recent apps button ( ), each browser tab or document can appear as a separate item that the user can select. Which Android KitKat feature does this correspond to?
+
+Screen capturing and sharing
+Apps can now capture the device's screen and share the contents with other users across a network. Which Android KitKat feature does this correspond to?
+
+Project Volta 
+Features that help preserve battery life, including the new JobScheduler that can execute asynchronous tasks when the device is charging, connected to an unmetered network (i.e., use Wi-Fi vs. cellular data) or idle. Which Android KitKat feature does this correspond to?
+
+
+
+
+Doze 
+Using software and sensors, Android determines when a device is stationary for a period of time—such as when you place it on a table overnight—and defers background processes that drain the battery. Which Android Marshmallow feature does this correspond to?
+
+App Standby 
+For apps that a user has open but has not interacted with recently, Android defers background network activity. Which Android Marshmallow feature does this correspond to?
+
+Now on Tap 
+Tap and hold the home button while inside any app and Google Now inspects what's on the screen and presents relevant information in the form of cards. For example, in a text message discussing a movie, a card containing information about that movie is displayed. Similarly, in a text message mentioning a restaurant name, a card with the ratings, location and phone number appears. Which Android Marshmallow feature does this correspond to?
+
+New permissions model
+Before Android 6.0, a user was required at installation time to grant in advance all permissions that an app would ever need—this caused many people not to install certain apps. With the new model, the app is installed without asking for any permissions. Instead, the user is asked to grant a permission only the first time the corresponding feature is used.  Which Android Marshmallow feature does this correspond to?
+
+Fingerprint authentication
+For devices with fingerprint readers, apps can now authenticate users via their fingerprints. Which Android Marshmallow feature does this correspond to?
+
+App linking 
+Enables developers to associate apps with their own web domains and craft web links that launch specific apps from the same developer. Which Android Marshmallow feature does this correspond to?
+
+Automatic backup 
+Android can automatically backup and restore an app's data. Which Android Marshmallow feature does this correspond to?
+
+Direct Share 
+You can define direct share targets in your app that enable users to share data via other apps, directly from your app. Which Android Marshmallow feature does this correspond to?
+
+Voice Interaction API 
+Enables apps to respond to voice interactions. Which Android Marshmallow feature does this correspond to?
+
+Bluetooth stylus support
+Apps can respond to pressure-sensitive interactions from a Bluetooth stylus—for example, in a drawing app, pressing the stylus against the screen harder could result in a thicker line. Which Android Marshmallow feature does this correspond to?
+
+Android uses a collection of packages, which are named groups of related, predefined classes.
+
+Android Support libraries, which enable you to use newer Android features in apps that run on current and older platforms.
+
+
+
+
+android.animation 
+Classes for property animation.
+
+android.app 
+Includes high-level classes in the Android app model.
+
+android.content 
+Access and publish data on a device.
+
+android.content.res 
+Classes for accessing app resources (e.g., media, colors, drawables, etc.), and device-configuration information affecting app behavior.
+
+android.database 
+Handling data returned by the content provider.
+
+android.database.sqlite 
+SQLite database management for private databases.
+
+android.graphics 
+Graphics tools used for drawing to the screen.
+
+android.graphics.drawable
+Classes for display-only elements (e.g., gradients, etc.).
+
+android.hardware 
+Device hardware support.
+
+android.media 
+Classes for handling audio and video media interfaces.
+
+android.net 
+Network access classes.
+
+android.os 
+Operating-systems services.
+
+android.preference 
+Working with an app's user preferences.
+
+android.provider 
+Access to Android content providers.
+
+android.support.design.widget
+Android Design Support Library classes that enable recent GUI enhancements to run on current and older Android platforms.
+
+android.support.v4.print
+Part of the v4 Android Support Library for use in platform API levels 4 and higher. Includes features for using the Android 4.4 printing framework.
+
+android.support.v7.app 
+Part of the v7 Android Support Library for use in platform API levels 7 and higher. Includes application-compatibility library components, such as app bars (formerly action bars).
+
+android.support.v7.widget
+Part of the v7 Android Support Library for use in platform API levels 7 and higher. Includes GUI components and layouts.
+
+android.text 
+Rendering and tracking text changes.
+
+android.util 
+Utility methods and XML utilities.
+
+android.widget 
+User-interface classes for widgets.
+
+android.view 
+User interface classes for layout and user interactions.
+
+The Android SDK provides the tools you'll need to build Android apps. It gets installed with Android Studio.
+
+Android Studio was announced at the Google I/O developer conference in 2013 and is now Google's preferred Android IDE.
+
+The Android Studio IDE includes:
+• GUI designer
+• code editor with support for syntax coloring and line numbering
+• auto-indenting and auto-complete (i.e., type hinting)
+• debugger
+• version control system and refactoring support
+
+The Android emulator, included in the Android SDK, allows you to run Android apps in a simulated environment within Windows, Mac OS X or Linux, without using an actual Android device.
+
+Before running an app in the emulator, you'll need to create an Android Virtual Device (AVD), which defines the characteristics of the device on which you want to test, including the hardware, system image, screen size, data storage and more.
+
+The accelerometer allows the device to respond to up/down, left/right and forward/backward acceleration
+
+Which of the following Android functionality are not available on the emulator
+
+• Making or receiving real phone calls (the emulator allows simulated calls only)
+• Bluetooth
+• USB connections
+• Device-attached headphones
+• Determining network connected state
+• Determining battery charge or power charging state
+• Determining SD card insert/eject
+• Direct support for sensors (accelerometer, barometer, compass, light sensor, proximity sensor)—it is possible, however, to use sensor data from a USB-connected device
+
+Each AVD you create has many other options specified in its config.ini file. To more precisely match a particular device's hardware configuration, you can modify this file.
